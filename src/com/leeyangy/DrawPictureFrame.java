@@ -1,59 +1,115 @@
 package com.leeyangy;
 
-//µ¼°ü
+//å¯¼åŒ…
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.awt.image.BufferedImage;
 
-//DrawPictureFrame¼Ì³Ğ×ÔJFrame
+//DrawPictureFrameç»§æ‰¿è‡ªJFrame
 public class DrawPictureFrame extends JFrame {
-    //´´½¨Ò»¸ö8Î»RGB
+    //åˆ›å»ºä¸€ä¸ª8ä½RGB
         BufferedImage bfimg=new BufferedImage(570,390,BufferedImage.TYPE_INT_BGR);
-        //»ñµÃÍ¼ÏñµÄ»æÍ¼¶ÔÏó
+        //è·å¾—å›¾åƒçš„ç»˜å›¾å¯¹è±¡
         Graphics graphics=bfimg.getGraphics();
-        //½«»æÍ¼¶ÔÏó×ª»»Îª2dÑùÊ½
+        //å°†ç»˜å›¾å¯¹è±¡è½¬æ¢ä¸º2dæ ·å¼
         Graphics2D graphics2D=(Graphics2D) graphics;
-        //´´½¨»­²¼¶ÔÏó
+        //åˆ›å»ºç”»å¸ƒå¯¹è±¡
         DrawPictureCanvas drawPictureCanvas=new DrawPictureCanvas();
-        //¶¨ÒåÇ°¾°É«
+        //å®šä¹‰å‰æ™¯è‰²
         Color foreColor=Color.BLACK;
         Color backupColor=Color.WHITE;
 
+        //åˆå§‹åŒ–é¼ æ ‡ç»˜åˆ¶æ¨ªçºµåæ ‡å’Œæ©¡çš®æ“¦è¡¨ç¤ºå˜é‡
+        int x=-1;
+        int y=-1;
+        boolean rubber = false;
 
         /**
-         * ¹¹Ôì·½·¨
+         * æ„é€ æ–¹æ³•ï¼Œæ·»åŠ é¼ æ ‡ç›‘å¬äº‹ä»¶
          */
         public DrawPictureFrame() {
-            //Ê¹´°Ìå²»ÄÜ¸Ä±ä´óĞ¡
+            //ä½¿çª—ä½“ä¸èƒ½æ”¹å˜å¤§å°
             setResizable(false);
-            //ÉèÖÃ´°Ìå±êÌâ
-            setTitle("»­ »­Ğ¡³ÌĞò");
-            //µã»÷ÓÒÉÏ½Ç¹Ø±ÕÁ¬Í¬³ÌĞòÒ»Æğ¹Ø±Õ
+            //è®¾ç½®çª—ä½“æ ‡é¢˜
+            setTitle("ç”» ç”»å°ç¨‹åº");
+            //ç‚¹å‡»å³ä¸Šè§’å…³é—­è¿åŒç¨‹åºä¸€èµ·å…³é—­
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            //ÉèÖÃ´°ÌåÎ»ÖÃºÍ¿í¸ß
+            //è®¾ç½®çª—ä½“ä½ç½®å’Œå®½é«˜
             setBounds(500,100,574,460);
-            //×é¼ş³õÊ¼»¯
+            //ç»„ä»¶åˆå§‹åŒ–
             init();
-
+            addListen();
         }
 
-        private void init(){
-            //ÓÃ±³¾°É«ÉèÖÃ»æÍ¼¶ÔÏóµÄÑÕÉ«
+    /**
+     * ç»„ä»¶åˆå§‹åŒ–
+     */
+    private void init(){
+            //ç”¨èƒŒæ™¯è‰²è®¾ç½®ç»˜å›¾å¯¹è±¡çš„é¢œè‰²
             graphics2D.setColor(backupColor);
-            //ÓÃ±³¾°É«Ìî³äÕû¸ö»­²¼
+            //ç”¨èƒŒæ™¯è‰²å¡«å……æ•´ä¸ªç”»å¸ƒ
             graphics2D.fillRect(0,0,570,390);
-            //ÓÃÇ°¾°É«ÉèÖÃ»æÍ¼¶ÔÏóµÄÑÕÉ«
+            //ç”¨å‰æ™¯è‰²è®¾ç½®ç»˜å›¾å¯¹è±¡çš„é¢œè‰²
             graphics2D.setColor(foreColor);
-            //ÉèÖÃ»­²¼Í¼Ïñ
+            //è®¾ç½®ç”»å¸ƒå›¾åƒ
             drawPictureCanvas.setImage(bfimg);
-            //½«»­²¼Ìí¼Óµ½´°ÌåÈİÆ÷Ä¬ÈÏ²¼¾ÖµÄÖĞ²¿Î»ÖÃ
+            //å°†ç”»å¸ƒæ·»åŠ åˆ°çª—ä½“å®¹å™¨é»˜è®¤å¸ƒå±€çš„ä¸­éƒ¨ä½ç½®
             getContentPane().add(drawPictureCanvas);
         }
-        //Ö÷³ÌĞòÈë¿Ú
+
+    /**
+     * ç»„ä»¶åˆå§‹åŒ–
+     */
+    private  void addListen(){
+        //æ³¨å†Œé¼ æ ‡ç›‘å¬äº‹ä»¶
+        drawPictureCanvas.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            /**
+             * é‡å†™æ–¹æ³•
+             *å½“é¼ æ ‡æ‹–æ‹½æ—¶
+             */
+            public void mouseDragged(final MouseEvent e) {
+                // å¦‚æœxå’Œyå­˜åœ¨é¼ æ ‡è®°å½•
+                if(x>0 && y>0){
+                    if(rubber){
+                        //å¦‚æœrubberä¸ºtrueï¼Œè¡¨ç¤ºä½¿ç”¨rubber
+                        //ç»˜å›¾å·¥å…·ä½¿ç”¨å‰æ™¯è‰²
+                        //åœ¨é¼ æ ‡æ»‘è¿‡çš„ä½ç½®å¡«å……æ­£æ–¹å½¢
+                        graphics2D.setColor(backupColor);
+                        graphics2D.fillRect(x,y,10,10);
+                    }
+                    else {
+                        //å¦‚æœrubberæ ‡è¯†ä¸ºfalseï¼Œè¡¨ç¤ºç”¨ç”»ç¬”
+                        //åœ¨é¼ æ ‡æ»‘è¿‡çš„ä½ç½®ç”»ç›´çº¿
+                        graphics2D.drawLine(x,y,e.getX(),e.getY());
+                    }
+                }
+                //è·å–é¼ æ ‡xyä½ç½®
+                y=e.getY();
+                x=e.getX();
+                //æ›´æ–°ç”»å¸ƒ
+                drawPictureCanvas.repaint();;
+            }
+        });
+        drawPictureCanvas.addMouseListener(new MouseAdapter() {
+            @Override
+            //é‡å†™é¼ æ ‡æŠ¬èµ·æ–¹æ³•
+            //å½“é¼ æ ‡é‡Šæ”¾æ—¶å°†é¼ æ ‡æ¢å¤
+            public void mouseReleased(final MouseEvent e) {
+                //æ¢å¤é¼ æ ‡æ¨ªçºµåæ ‡
+                x=-1;
+                y=-1;
+            }
+        });
+        }
+        //ä¸»ç¨‹åºå…¥å£
         public static void main(String[] args) {
-            //ÊµÀı»¯¶ÔÏó
+            //å®ä¾‹åŒ–å¯¹è±¡
             DrawPictureFrame dpf=new DrawPictureFrame();
-            //ÈÃÆäÏÔÊ¾³öÀ´
+            //è®©å…¶æ˜¾ç¤ºå‡ºæ¥
             dpf.setVisible(true);
         }
 }
