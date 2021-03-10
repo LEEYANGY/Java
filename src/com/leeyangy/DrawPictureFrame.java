@@ -3,14 +3,12 @@ package com.leeyangy;
 //导包
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
 //DrawPictureFrame继承自JFrame
 public class DrawPictureFrame extends JFrame {
-    //创建一个8位RGB
+        //创建一个8位RGB
         BufferedImage bfimg=new BufferedImage(570,390,BufferedImage.TYPE_INT_BGR);
         //获得图像的绘图对象
         Graphics graphics=bfimg.getGraphics();
@@ -26,6 +24,29 @@ public class DrawPictureFrame extends JFrame {
         int x=-1;
         int y=-1;
         boolean rubber = false;
+
+        //添加工具栏及按钮
+        //工具栏
+        private JToolBar toolBar;
+        //橡皮擦按钮
+        private JButton eraserButton;
+        //细线按钮
+        private JButton strokeButton1;
+        //粗线按钮
+        private JButton strokeButton2;
+        //较粗按钮
+        private JButton strokeButton3;
+        //前景色按钮
+        private JButton foregroundButton;
+        //背景色按钮
+        private JButton backgroundButton;
+        //清除按钮
+        private JButton clearButton;
+        //保存按钮
+        private JButton saveButton;
+        //图形按钮
+        private JButton shapeButton;
+
 
         /**
          * 构造方法，添加鼠标监听事件
@@ -58,7 +79,50 @@ public class DrawPictureFrame extends JFrame {
             drawPictureCanvas.setImage(bfimg);
             //将画布添加到窗体容器默认布局的中部位置
             getContentPane().add(drawPictureCanvas);
-        }
+
+            //初始化工具栏
+            toolBar =new JToolBar();
+            //工具栏添加到最北的位置
+            getContentPane().add(toolBar, BorderLayout.NORTH);
+            //添加保存按钮
+            saveButton =new JButton("保存");
+            toolBar.add(saveButton);
+            //添加分割
+            toolBar.addSeparator();
+            //以下同类方法省略（添加按钮注释之类的，toolBar.addSeparator()添加分割）
+            //添加画笔粗细按钮
+            strokeButton1= new JButton("细  线");
+            strokeButton1.setSelected(true);
+            toolBar.add(strokeButton1);
+
+            strokeButton2= new JButton("粗  线");
+            toolBar.add(strokeButton2);
+
+            strokeButton3= new JButton("比较粗");
+            toolBar.add(strokeButton3);
+
+            //画笔粗细按钮，确保只能有一个按钮被选中
+            ButtonGroup buttonGroup=new ButtonGroup();
+            buttonGroup.add(strokeButton1);
+            buttonGroup.add(strokeButton2);
+            buttonGroup.add(strokeButton3);
+            toolBar.add(strokeButton3);
+            toolBar.addSeparator();
+            //添加背景色
+            backgroundButton=new JButton("背景色");
+            toolBar.add(backgroundButton);
+
+            //添加前景色
+            foregroundButton=new JButton("前景色");
+            toolBar.add(foregroundButton);
+            toolBar.addSeparator();
+            //添加清除按钮
+            clearButton=new JButton("清除");
+            toolBar.add(clearButton);
+            //添加橡皮按钮
+            eraserButton=new JButton("橡皮");
+            toolBar.add(eraserButton);
+    }
 
     /**
      * 组件初始化
@@ -104,7 +168,53 @@ public class DrawPictureFrame extends JFrame {
                 y=-1;
             }
         });
-        }
+
+        //添加画笔粗细 0-3
+        //添加线条按钮动作监听事件
+        strokeButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent arg0) {
+                //声明画笔属性，粗细像素为1像素。线条末端无修饰，折线处成尖角
+                BasicStroke bs=new BasicStroke(1,BasicStroke.CAP_BUTT,BasicStroke.JOIN_MITER);
+                //使用此画笔
+                graphics2D.setStroke(bs);
+            }
+        });
+        //以下方法同上
+        strokeButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent arg0) {
+                BasicStroke bs=new BasicStroke(2,BasicStroke.CAP_BUTT,BasicStroke.JOIN_MITER);
+                graphics2D.setStroke(bs);
+            }
+        });
+        //以下方法同上
+        strokeButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent arg0) {
+                BasicStroke bs=new BasicStroke(3,BasicStroke.CAP_BUTT,BasicStroke.JOIN_MITER);
+                graphics2D.setStroke(bs);
+            }
+        });
+
+        //背景颜色按钮添加动作监听
+        backgroundButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                Color bgColor =JColorChooser.showDialog(DrawPictureFrame.this,"选择颜色",Color.CYAN);
+                if (bgColor !=null){
+                    backupColor=bgColor;
+
+                }
+                backgroundButton.setBackground(backupColor);
+                graphics2D.setColor(backupColor);
+                graphics2D.fillRect(0,0,570,390);
+                graphics2D.setColor(foreColor);
+                drawPictureCanvas.repaint();
+
+            }
+        });
+    }
         //主程序入口
         public static void main(String[] args) {
             //实例化对象
