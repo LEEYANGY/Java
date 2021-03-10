@@ -229,11 +229,33 @@ public class DrawPictureFrame extends JFrame {
             }
         });
 
+        //清屏按钮添加动作监听事件
+        clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                graphics2D.setColor(backupColor);
+                graphics2D.fillRect(0,0,570,390);
+                graphics2D.setColor(foreColor);
+                drawPictureCanvas.repaint();
+            }
+        });
+
+        //橡皮擦按钮动作监听事件
+        eraserButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                if(eraserButton.getText().equals("橡皮")){
+                    rubber=true;
+                    eraserButton.setText("画图");
+                }else{
+                    rubber=false;
+                    eraserButton.setText("橡皮");
+                    graphics2D.setColor(foreColor);
+
+                }
+            }
+        });
     }
-
-
-
-
         //主程序入口
         public static void main(String[] args) {
             //实例化对象
