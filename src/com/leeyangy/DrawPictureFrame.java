@@ -214,7 +214,26 @@ public class DrawPictureFrame extends JFrame {
 
             }
         });
+
+        //前景色按钮添加动作监听
+        foregroundButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Color fcolor=JColorChooser.showDialog(DrawPictureFrame.this,"选择颜色",Color.CYAN);
+                if(fcolor!=null){
+                    foreColor=fcolor;
+
+                }
+                foregroundButton.setForeground(foreColor);
+                graphics2D.setColor(foreColor);
+            }
+        });
+
     }
+
+
+
+
         //主程序入口
         public static void main(String[] args) {
             //实例化对象
