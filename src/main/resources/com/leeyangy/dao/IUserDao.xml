@@ -7,4 +7,5 @@
     <select id="findAll" resultType="com.leeyangy.domain.User">
         select * from user
     </select>
+<!--    再此处映射IUserDao.java中的配置，上面resultType指定查询结果封装对象-->
 </mapper>

@@ -1,0 +1,54 @@
+
+MyBatis是面向sql的持久层框架，它封装了jdbc访问数据库的过程，我们只需专注于sql语句本，加载驱动，创建链接，创建statement 的过程全部可以交给MyBatis去完成。
+
+　　与Hibernate比较：
+
+1.Hibernate学习门槛不低，要精通门槛更高。
+门槛高在怎么设计O/R映射，在性能和对象模型之间如何权衡取得平衡，以及怎样用好Hibernate缓存与数据加载策略方面需要你的经验和能力都很强才行。
+国内目前前的情况精通hibernate技术大牛非常少。
+
+2.sql优化方面，Hibernate的查询会将表中的所有字段查询出来，这一点会有性能消耗。
+当然了，Hibernate也可以自己写SQL来指定需要查询的字段，但这样就破坏了Hibernate开发的简洁性。
+说得更深入一些，如果有个查询要关联多张表，比如5张表，10张表时，而且，我们要取的字段只是其中几张表的部分字段。
+这时用hibernate时就会显得非常力不从心。就算用hibernate的sqlquery，后续的维护工作也会让人发狂。
+
+-- ----------------------------
+-- Table structure for `user`
+-- ----------------------------
+//如果存在则删除表
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) NOT NULL COMMENT '用户名称',
+  `birthday` date DEFAULT NULL COMMENT '生日',
+  `sex` char(1) DEFAULT NULL COMMENT '性别',
+  `address` varchar(256) DEFAULT NULL COMMENT '地址',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+
+//向user表中插入数据
+
+INSERT INTO `user` VALUES ('1', '王五', null, '2', null);
+INSERT INTO `user` VALUES ('10', '张三', '2014-07-10', '1', '北京市');
+INSERT INTO `user` VALUES ('16', '张小明', null, '1', '河南郑州');
+INSERT INTO `user` VALUES ('22', '陈小明', null, '1', '河南郑州');
+INSERT INTO `user` VALUES ('24', '张三丰', null, '1', '河南郑州');
+INSERT INTO `user` VALUES ('25', '陈小明', null, '1', '河南郑州');
+INSERT INTO `user` VALUES ('26', '王五', null, null, null);
+
+上面是测试用例
+
+
+
+
+
+出现如下问题：
+You must configure either the server or JDBC driver (via the serverTimezone configuration property)
+在url后加上 ?serverTimezone=UTC 即可解决问题
+https://blog.csdn.net/aayygg1234/article/details/78205240
+
+

@@ -50,6 +50,7 @@ public class User implements Serializable {
         this.address = address;
     }
 
+    //    通过toString方法转换，如果没有toString方法则打印地址
     @Override
     public String toString() {
         return "User{" +
