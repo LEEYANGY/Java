@@ -19,6 +19,11 @@
         values (#{id}, #{name}, #{pwd});
     </insert>
 
+    <insert id="addUser2" parameterType="map">
+        insert into mybatis.user (id, name, pwd)
+        values (#{userId}, #{userName}, #{userPwd});
+    </insert>
+
     <update id="updateUser" parameterType="com.leeyangy.pojo.User">
         update mybatis.user
         set name = #{name},

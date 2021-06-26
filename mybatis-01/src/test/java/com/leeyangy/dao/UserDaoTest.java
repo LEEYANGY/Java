@@ -6,7 +6,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by leeyangy on 2021/6/25 22:22
@@ -51,6 +53,23 @@ public class UserDaoTest {
         if (res > 0) {
             System.out.println("插入数据成功!");
         }
+//        提交事务
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
+    public void addUser2() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("userId",6);
+        map.put("userName","周扒皮");
+        map.put("userPwd","admin");
+
+        mapper.addUser2(map);
+
 //        提交事务
         sqlSession.commit();
         sqlSession.close();
