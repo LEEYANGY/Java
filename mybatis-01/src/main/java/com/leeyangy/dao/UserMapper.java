@@ -11,15 +11,23 @@ import java.util.Map;
 public interface UserMapper {
     //查询所有用户
     List<User> getUserList();
-//    按id查询用户
-    User getUserById (int id);
-//    insert user
+
+    //    按id查询用户
+    User getUserById(int id);
+
+    //    insert user
     int addUser(User user);
+
     //    万能map
-    int addUser2(Map<String,Object> map);
-//  根据id修改用户信息
+    int addUser2(Map<String, Object> map);
+
+    //  根据id修改用户信息
     int updateUser(User user);
-//    删除用户
+
+    //    删除用户
     int deleteUser(int id);
+
+    //模糊查询
+    List<User> getUserLike(String name);
 
 }

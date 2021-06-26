@@ -64,9 +64,9 @@ public class UserDaoTest {
 
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("userId",6);
-        map.put("userName","周扒皮");
-        map.put("userPwd","admin");
+        map.put("userId", 6);
+        map.put("userName", "周扒皮");
+        map.put("userPwd", "admin");
 
         mapper.addUser2(map);
 
@@ -99,6 +99,17 @@ public class UserDaoTest {
             System.out.println("删除数据成功!");
         }
         sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
+    public void getUserLike() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> userList = mapper.getUserLike("李");
+        for (User user : userList) {
+            System.out.println(user);
+        }
         sqlSession.close();
     }
 }
