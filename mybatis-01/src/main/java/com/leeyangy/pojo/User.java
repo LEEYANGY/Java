@@ -8,18 +8,17 @@ import java.util.Date;
 
 public class User {
     private int id;
-    private int age;
-    private Date birthday;
-    private String username;
+    private String name;
+    private String pwd;
 
-//        public User() {
-//    }
-//    public User(int id,int age,Date birthday,String username){
-//        this.id=id;
-//        this.age=age;
-//        this.birthday=birthday;
-//        this.username=username;
-//    }
+
+    public User() {
+    }
+    public User(int id, String name,String pwd){
+        this.id=id;
+        this.name=name;
+        this.pwd=pwd;
+    }
 
     public int getId() {
         return id;
@@ -29,37 +28,28 @@ public class User {
         this.id = id;
     }
 
-    public int getAge() {
-        return age;
+    public String getName() {
+        return name;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Date getBirthday() {
-        return birthday;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", age=" + age +
-                ", birthday=" + birthday +
-                ", username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", pwd='" + pwd + '\'' +
                 '}';
     }
 }
