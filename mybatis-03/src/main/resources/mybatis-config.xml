@@ -6,6 +6,11 @@
 
 <configuration>
     <properties resource="db.properties"/>
+    <!--可以给实体类起别名-->
+<!--    <typeAliases>-->
+<!--        <package name="com.leeyangy.pojo"/>-->
+<!--    </typeAliases>-->
+
     <!--配置环境-->
     <environments default="mysql">
         <!--        配置mysql环境-->
