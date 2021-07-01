@@ -4,7 +4,6 @@ package com.leeyangy.pojo;
  * Created by leeyangy on 2021/6/25 22:12
  *  案例 3 解决属性名和字段名不一致问题
  */
-
 public class User {
     private int id;
     private String name;
@@ -35,12 +34,12 @@ public class User {
         this.name = name;
     }
 
-    public String getPassword() {
+    public String getPwd() {
         return pwd;
     }
 
-    public void setPassword(String password) {
-        this.pwd = password;
+    public void setPassword(String pwd) {
+        this.pwd = pwd;
     }
 
     @Override
@@ -48,7 +47,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", password='" + pwd + '\'' +
+                ", pwd='" + pwd + '\'' +
                 '}';
     }
 }

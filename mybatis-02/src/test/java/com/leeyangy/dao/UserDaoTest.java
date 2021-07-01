@@ -48,9 +48,11 @@ public class UserDaoTest {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
 
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        int res = mapper.addUser(new User(11, "李9", "123321"));
+        int res = mapper.addUser(new User(5, "李9", "123321"));
         if (res > 0) {
             System.out.println("插入数据成功!");
+        }else{
+            System.out.println("插入数据失败,请检查!");
         }
 //        提交事务
         sqlSession.commit();
@@ -65,6 +67,8 @@ public class UserDaoTest {
         int res = mapper.updateUser(new User(4, "李6", "321"));
         if (res > 0) {
             System.out.println("修改数据成功!");
+        }else {
+            System.out.println("修改失败,请检查!");
         }
         //        提交事务
         sqlSession.commit();
@@ -76,9 +80,11 @@ public class UserDaoTest {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
-        int res = mapper.deleteUser(4);
+        int res = mapper.deleteUser(5);
         if (res > 0) {
             System.out.println("删除数据成功!");
+        }else {
+            System.out.println("删除失败,请检查!");
         }
         sqlSession.commit();
         sqlSession.close();

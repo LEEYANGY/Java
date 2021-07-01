@@ -27,5 +27,8 @@
             </dataSource>
         </environment>
     </environments>
-
+<mappers>
+    <mapper class="com.leeyangy.dao.TeacherMapper"/>
+    <mapper class="com.leeyangy.dao.StudentMapper"/>
+</mappers>
 </configuration>
