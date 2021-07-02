@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.leeyangy.dao.StudentMapper">
+    <!--查询老师为null原因分析：                      -->
+    <!--1.查询所有学生信息-->
+    <!--2.根据后才想你出来的学生id，寻找对应老师   子查询-->
+    <select id="getStudent" resultMap="StudentTeacher">
+--         SELECT s.id,s.name,t.id from student s,teacher t WHERE s.tid =t.id;
+--             学生id 学生姓名 老师id   student s  teacher t   s对应老师的tid
+            select * from student;
+    </select>
+
+    <resultMap id="StudentTeacher" type="com.leeyangy.pojo.Student">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <!--对象使用assiociation-->
+        <!--集合用collection-->
+        <association property="teacher" column="tid" javaType="Teacher" select="getTeacher"/>
+    </resultMap>
+
+    <select id="getTeacher" resultType="Teacher">
+        select * from teacher where id = #{id};
+    </select>
+
+<!--第二种方法-->
+    <select id="getStudent2" resultMap="StudentTeacher2">
+        select s.id sid,s.name sname,t.name tname
+        from student s,teacher t where s.tid=t.id;
+    </select>
+
+    <resultMap id="StudentTeacher2" type="com.leeyangy.pojo.Student">
+        <result property="id" column="sid"/>
+        <result property="name" column="sname"/>
+        <association property="teacher" javaType="com.leeyangy.pojo.Teacher">
+            <result property="name" column="tname"/>
+    </association>
+
+    </resultMap>
+
+</mapper>
+
+<!--Student{id=1, name='小明', tid=1}-->
+<!--Student{id=2, name='小红', tid=1}-->
+<!--Student{id=3, name='小张', tid=1}-->
+<!--Student{id=4, name='小李', tid=1}-->
+<!--Student{id=5, name='小王', tid=1}-->
+
+
+
+
+
+
+
