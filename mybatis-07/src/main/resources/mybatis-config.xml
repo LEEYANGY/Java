@@ -6,6 +6,14 @@
 
 <configuration>
     <properties resource="db.properties"/>
+
+    <settings>
+<!--        日志-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+<!--        开启驼峰命名规则-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
     <!--给实体类起别名-->
     <typeAliases>
         <package name="com.leeyangy.pojo"/>
@@ -27,8 +35,7 @@
             </dataSource>
         </environment>
     </environments>
-<mappers>
-    <mapper class="com.leeyangy.dao.TeacherMapper"/>
-    <mapper class="com.leeyangy.dao.StudentMapper"/>
-</mappers>
+    <mappers>
+        <mapper class="com.leeyangy.dao.BlogMapper"/>
+    </mappers>
 </configuration>
