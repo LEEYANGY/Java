@@ -26,6 +26,7 @@
     </select>
 
 <!--第二种方法-->
+<!--    按照结果嵌套处理-->
     <select id="getStudent2" resultMap="StudentTeacher2">
         select s.id sid,s.name sname,t.name tname
         from student s,teacher t where s.tid=t.id;
@@ -50,7 +51,9 @@
 
 
 
-
+<!--mysql多对一查询方式：-->
+<!--    子查询：-->
+<!--    连表查询-->
 
 
 
