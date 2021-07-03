@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+    <properties resource="db.properties"/>
+
+    <settings>
+<!--        日志-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+<!--        开启驼峰命名规则-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <!--给实体类起别名-->
+    <typeAliases>
+        <package name="com.leeyangy.pojo"/>
+    </typeAliases>
+
+    <!--配置环境-->
+    <environments default="mysql">
+        <!--        配置mysql环境-->
+        <environment id="mysql">
+            <!--            配置事务类型-->
+            <transactionManager type="JDBC"/>
+            <!--            配置数据源（数据池）-->
+            <dataSource type="POOLED">
+                <!--                配置连接数据的4个基本信息-->
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper class="com.leeyangy.dao.BlogMapper"/>
+    </mappers>
+</configuration>
