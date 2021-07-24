@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="cat" class="top.leeyangy.pojo.Cat"/>
+    <bean id="dog" class="top.leeyangy.pojo.Dog"/>
+
+<!--    <bean id="people" class="top.leeyangy.pojo.People">-->
+<!--        <property name="name" value="LEEYANGY"/>-->
+<!--        <property name="cat" ref="cat"/>-->
+<!--        <property name="dog" ref="dog"/>-->
+<!--    </bean>-->
+
+<!--    byName-->
+    <bean id="people" class="top.leeyangy.pojo.People" autowire="byName">
+        <property name="name" value="LEEYANGY"/>
+    </bean>
+
+<!--    byType-->
+<!--    <bean id="cat" class="top.leeyangy.pojo.Cat"/>-->
+<!--    <bean id="dog111" class="top.leeyangy.pojo.Dog"/>-->
+<!--    <bean id="people" class="top.leeyangy.pojo.People" autowire="byType">-->
+<!--        <property name="name" value="LEEYANGY"/>-->
+<!--    </bean>-->
+
+<!--    byName  需要保证所有bean id 唯一  ，并且bean需要和自动注入的属性set方法值一致-->
+<!--    byType  需要保证bean class 唯一   ，并且这个bean需要和自动注入的属性set方法的值一致    -->
+
+</beans>

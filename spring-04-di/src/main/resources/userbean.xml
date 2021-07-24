@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- services -->
+<!--    p命名空间注入，可以直接注入属性值 property 需要无参构造-->
+    <bean id="user" class="top.leeyangy.pojo.User" p:name="LEEYANGY1" p:age="21"/>
+<!--    c 构造注入  通过构造器注入：construct-args  需要有参构造-->
+    <bean id="user2" class="top.leeyangy.pojo.User" c:name="LEEYANGY2" c:age="22"/>
+
+<!--    bean作用域-->
+<!--    单例模式  （Spring 默认机制）-->
+    <bean id="user3" class="top.leeyangy.pojo.User" c:name="LEEYANGY2" c:age="23" scope="singleton"/>
+<!--    原型模式：每次从容器中get时候 都会产生新对象-->
+    <bean id="user4" class="top.leeyangy.pojo.User" c:name="LEEYANGY2" c:age="24" scope="prototype"/>
+
+<!--    request，session，application在web开发中才用到-->
+
+<!--    p和c在使用时候需要导入xml约束 才能使用
+
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+
+
+-->
+
+</beans>

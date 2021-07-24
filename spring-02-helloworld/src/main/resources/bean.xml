@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--使用spring创建对象  在spring中称为Bean-->
+    <!-- services -->
+    <!--    bean=对象   bean = 对象 new Hello() -->
+    <!--    property 相当于给对象设置一个值 -->
+    <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;分割线-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+    <!--
+        类型 变量名 =new 类型();
+        Hello hello = new Hello();
+
+        id  变量名
+        class =new 对象；
+        property 相当于给对象设置一个值
+
+    -->
+
+
+    <bean id="hello" class="top.leeyangy.pojo.Hello">
+        <!-- collaborators and configuration for this bean go here -->
+        <property name="str" value="spring1"/>
+    </bean>
+
+    <!--    <bean id="..." class="...">-->
+    <!-- collaborators and configuration for this bean go here -->
+    <!--    </bean>-->
+
+    <!-- more bean definitions go here -->
+
+</beans>
+
+
+        <!--ioc理解
+        控制反转
+
+        控制  ： 谁来控制对象的创建，传统应用程序的对象就是有程序本身控制创建，使用Spring后，对象由Spring创建
+        反转： 程序本身不创建对象 而变成被动的接收对象
+        依赖注入： 就是利用set方法进行注入
+        IOC是一种变成思想 有主动编程变成被动编程
+
+
+        要实现不同操作 只需要在xml中配置进行修改
+        所谓IOC  一句搞定：对象由spring来创建，管理，装配
+
+        -->
+
+
+        <!--
+        spring 数据基本类型
+        赋值用value
+        引用类型ref赋值
+        ref 引用Spring容器中创建好的对象
+        -->

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- services -->
+    <bean id="address" class="top.leeyangy.pojo.Address"/>
+    <bean id="student" class="top.leeyangy.pojo.Student">
+        <!--    普通值注入 value -->
+        <property name="name" value="leeyangy"/>
+        <!--    bean注入 ref -->
+        <property name="address" ref="address"/>
+        <!--        数组注入  -->
+        <property name="books">
+            <array>
+                <value>
+                    Java从入门到放弃
+                </value>
+
+                <value>
+                    Linux迟早入狱
+                </value>
+            </array>
+        </property>
+
+        <property name="hobbys">
+            <list>
+                <value>
+                    听歌
+                </value>
+
+                <value>
+                    码代码
+                </value>
+            </list>
+        </property>
+
+        <property name="card">
+            <map>
+                <entry key="身份证" value="10010"/>
+                <entry key="bankcard" value="11111"/>
+            </map>
+        </property>
+
+        <property name="game">
+            <set>
+                <value>
+                    COC
+                </value>
+
+                <value>
+                    QQ
+                </value>
+            </set>
+        </property>
+
+        <property name="wife">
+            <null/>
+        </property>
+
+        <property name="info">
+            <props>
+                <prop key="学号">2019102236</prop>
+                <prop key="性别">男</prop>
+                <prop key="姓名">LEEYANGY</prop>
+                <prop key="Username">LEE</prop>
+                <prop key="Passwd">10000</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

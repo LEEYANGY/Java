@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    <bean id="user" class="top.leyangy.pojo.User">-->
+    <!--        <property name="name" value="LEEYANGY"/>-->
+    <!--    </bean>-->
+
+    <!--    下标赋值 -->
+    <!--    <bean id="user" class="top.leyangy.pojo.User">-->
+    <!--        <constructor-arg index="0" value="Nemo"/>-->
+    <!--    </bean>-->
+
+    <!--    通过类型创建-->
+    <!--    <bean id="user" class="top.leyangy.pojo.User">-->
+    <!--        <constructor-arg type="java.lang.String" value="LEEYANGY"/>-->
+    <!--    </bean>-->
+
+    <bean id="user" class="top.leyangy.pojo.User">
+        <constructor-arg name="name" value="NEMO"/>
+    </bean>
+</beans>
+
+        <!--
+            spring配置
+
+            Bean配置
+            id： bean 的唯一标识符 ，相当于对象名
+
+            class ： bean 对象所对应全限定名  包名+类型
+
+            name ： 也是别名，name更高级一些 可以同事取多个别名
+
+            Import配置：
+
+            这个玩意 一般用于团队开发，可以将多个配置文件导入合并为一个
+
+
+
+        -->
+
+
+        <!--
+            依赖注入
+
+            1.构造器注入
+
+            2.set注入
+                依赖：bean对象的创建依赖于容器
+                注入：bean对象中的所有属性，由容器来注入
+
+            3.
+
+        -->
