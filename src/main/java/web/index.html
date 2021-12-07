@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+<!--    https://www.w3cschool.cn/html/html-tables.html-->
+<!--    一个简单作息表计划-->
+    <meta charset="UTF-8">
+    <title>My daily</title>
+</head>
+
+<body>
+<!--table 使用表格-->
+<!--标签·中的border是边框的宽度，单位是像素-->
+<!--table标签的属性还有width和height，用来调整表格整体大小-->
+    <table border="2" align="center" cellspacing="0" cellpadding="1">
+<!--        tr是行，td是列-->
+<!--        th标签与td标签同级。用来定义单元格，默认加粗显示-->
+        <tr class="head" align="center">
+<!--            星期-->
+            <th>时间\星期</th>
+            <td>星期一</td>
+            <td>星期二</td>
+            <td>星期三</td>
+            <td>星期四</td>
+            <td>星期五</td>
+            <td>星期六</td>
+            <td>星期天</td>
+        </tr>
+<!--        colSpan用来合并列-->
+<!--        rowSpan用来合并行-->
+        <tr align="center">
+            <th>时间一<br>08:00--10:00</th>
+            <td colspan="5">高数</td>
+            <td rowspan="7">网页开发</td>
+            <td rowspan="7">休息</td>
+        </tr>
+
+        <tr align="center"  >
+            <th>时间二<br>10:20--12:00</th>
+            <td colspan="5">英语</td>
+        </tr>
+
+        <tr align="center">
+            <th>时间三<br>12:00--14:00</th>
+            <td colspan="5">休息/音乐/电影/游戏</td>
+        </tr>
+
+        <tr align="center">
+            <th>时间四<br>14:00--16:00</th>
+            <td colspan="5">电路</td>
+        </tr>
+
+        <tr align="center">
+            <th>时间四<br>16:00--17:30</th>
+            <td colspan="5">买菜/做饭</td>
+        </tr>
+
+        <tr align="center">
+            <th>时间五<br>19:00--22:00</th>
+            <td colspan="5">C/C++/Java/Android</td>
+        </tr>
+
+        <tr align="center">
+            <th>时间六<br>22:00--23:00</th>
+            <td colspan="5">背单词</td>
+        </tr>
+    </table>
+</body>
+</html>
