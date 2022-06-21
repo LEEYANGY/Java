@@ -1,0 +1,47 @@
+2022-06-21 12:43:49 INFO  xyz.leeyangy.blog.BlogApplication -Starting BlogApplication using Java 17.0.2 on LEEYANGY with PID 12448 (D:\Coding\java_code\blog\target\classes started by LEEYANGY in D:\Coding\java_code\blog)
+2022-06-21 12:43:49 INFO  xyz.leeyangy.blog.BlogApplication -The following 1 profile is active: "dev"
+2022-06-21 12:43:50 INFO  xyz.leeyangy.blog.BlogApplication -Started BlogApplication in 1.383 seconds (process running for 2.21)
+2022-06-21 12:47:30 INFO  xyz.leeyangy.blog.BlogApplication -Starting BlogApplication using Java 17.0.2 on LEEYANGY with PID 14272 (D:\Coding\java_code\blog\target\classes started by LEEYANGY in D:\Coding\java_code\blog)
+2022-06-21 12:47:30 INFO  xyz.leeyangy.blog.BlogApplication -The following 1 profile is active: "dev"
+2022-06-21 12:47:30 INFO  xyz.leeyangy.blog.BlogApplication -Started BlogApplication in 1.164 seconds (process running for 1.865)
+2022-06-21 12:48:34 INFO  xyz.leeyangy.blog.BlogApplication -Starting BlogApplication using Java 17.0.2 on LEEYANGY with PID 14084 (D:\Coding\java_code\blog\target\classes started by LEEYANGY in D:\Coding\java_code\blog)
+2022-06-21 12:48:34 INFO  xyz.leeyangy.blog.BlogApplication -The following 1 profile is active: "dev"
+2022-06-21 12:48:34 INFO  xyz.leeyangy.blog.BlogApplication -Started BlogApplication in 0.986 seconds (process running for 1.672)
+2022-06-21 12:50:57 INFO  xyz.leeyangy.blog.BlogApplication -Starting BlogApplication using Java 17.0.2 on LEEYANGY with PID 7696 (D:\Coding\java_code\blog\target\classes started by LEEYANGY in D:\Coding\java_code\blog)
+2022-06-21 12:50:57 INFO  xyz.leeyangy.blog.BlogApplication -The following 1 profile is active: "dev"
+2022-06-21 12:50:58 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8081 (http)
+2022-06-21 12:50:58 INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2022-06-21 12:50:58 INFO  org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/10.0.21]
+2022-06-21 12:50:58 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2022-06-21 12:50:58 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 886 ms
+2022-06-21 12:50:58 INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping -Adding welcome page template: index
+2022-06-21 12:50:59 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8081 (http) with context path ''
+2022-06-21 12:50:59 INFO  xyz.leeyangy.blog.BlogApplication -Started BlogApplication in 1.867 seconds (process running for 2.643)
+2022-06-21 12:51:10 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-21 12:51:10 INFO  org.springframework.web.servlet.DispatcherServlet -Initializing Servlet 'dispatcherServlet'
+2022-06-21 12:51:10 INFO  org.springframework.web.servlet.DispatcherServlet -Completed initialization in 2 ms
+2022-06-21 12:51:58 INFO  xyz.leeyangy.blog.BlogApplication -Starting BlogApplication using Java 17.0.2 on LEEYANGY with PID 11860 (D:\Coding\java_code\blog\target\classes started by LEEYANGY in D:\Coding\java_code\blog)
+2022-06-21 12:51:58 INFO  xyz.leeyangy.blog.BlogApplication -The following 1 profile is active: "dev"
+2022-06-21 12:51:59 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8081 (http)
+2022-06-21 12:51:59 INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2022-06-21 12:51:59 INFO  org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/10.0.21]
+2022-06-21 12:51:59 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2022-06-21 12:51:59 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 782 ms
+2022-06-21 12:51:59 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8081 (http) with context path ''
+2022-06-21 12:51:59 INFO  xyz.leeyangy.blog.BlogApplication -Started BlogApplication in 1.747 seconds (process running for 2.479)
+2022-06-21 12:52:02 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-21 12:52:02 INFO  org.springframework.web.servlet.DispatcherServlet -Initializing Servlet 'dispatcherServlet'
+2022-06-21 12:52:02 INFO  org.springframework.web.servlet.DispatcherServlet -Completed initialization in 1 ms
+2022-06-21 13:04:12 INFO  xyz.leeyangy.blog.BlogApplication -Starting BlogApplication using Java 17.0.2 on LEEYANGY with PID 5796 (D:\Coding\java_code\blog\target\classes started by LEEYANGY in D:\Coding\java_code\blog)
+2022-06-21 13:04:12 INFO  xyz.leeyangy.blog.BlogApplication -The following 1 profile is active: "dev"
+2022-06-21 13:04:13 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8081 (http)
+2022-06-21 13:04:13 INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2022-06-21 13:04:13 INFO  org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/10.0.21]
+2022-06-21 13:04:13 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2022-06-21 13:04:13 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 848 ms
+2022-06-21 13:04:13 INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping -Adding welcome page template: index
+2022-06-21 13:04:13 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8081 (http) with context path ''
+2022-06-21 13:04:13 INFO  xyz.leeyangy.blog.BlogApplication -Started BlogApplication in 1.786 seconds (process running for 2.504)
+2022-06-21 13:04:14 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-21 13:04:14 INFO  org.springframework.web.servlet.DispatcherServlet -Initializing Servlet 'dispatcherServlet'
+2022-06-21 13:04:14 INFO  org.springframework.web.servlet.DispatcherServlet -Completed initialization in 0 ms

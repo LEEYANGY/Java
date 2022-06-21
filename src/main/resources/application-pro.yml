@@ -1,0 +1,15 @@
+server:
+  port: 8082
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://leeyangy.xyz:3306/blog?serverTimezone=CST
+    username: root
+    password: 123321456
+

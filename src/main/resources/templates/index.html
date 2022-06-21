@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--    引入移动端-->
+    <meta name="viewport" content="width=device-width,initial-scrale=1.0">
+    <!--    引入semanticUI-->
+    <title>首页</title>
+    <link rel="stylesheet" href="../static/semantic/semantic.css">
+    <!--引入资源-->
+    <script src="../static/js/jquery-3.6.0.js"></script>
+    <script src="../static/semantic/semantic.js"></script>
+    <!--    引入自己写的css-->
+    <link rel="stylesheet" href="../static/css/mycss.css">
+</head>
+<body>
+<!--导航栏-->
+<!--开始-->
+<nav class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui blue header item">Blog</h2>
+            <a href="index.html" class="active m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="types.html" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="tags.html" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+            <a href="archives.html" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+            <a href="about.html" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+            <div class="right m-item item m-mobile-hide">
+                <!--                    transparent透明   inverted 反装颜色-->
+                <div class="ui icon inverted transparent input">
+                    <input type="text" placeholder="Search.......">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui black menu toggle button icon m-top-right m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+<!--结束-->
+<!--导航栏-->
+
+<!--中间页面-->
+<!--开始-->
+<div class="m-padded-tb-big m-container">
+    <div class="ui container">
+        <div class="ui stackable grid">
+            <!--        文章内容列表-->
+            <!--        左边栏-->
+            <div class="eleven wide column">
+                <!--                左中间文章  开始-->
+                <div class="ui segment top attached">
+                    <!--                    两列 方向垂直 居中-->
+                    <div class="ui grid two column middle aligned">
+                        <!--                        第一列-->
+                        <div class="column">
+                            <h3 class="ui blue header">博客</h3>
+                        </div>
+                        <!--                        第二列-->
+                        <div class="column right aligned">
+                            共<h3 class="ui orange header m-inline-block">数量</h3>篇
+                        </div>
+                    </div>
+                </div>
+                <!--                左中间文章  结束-->
+                <!--                中间文章  开始-->
+                <div class="ui attached segment">
+
+                    <!--                    demo1 start-->
+                    <div class="ui vertical padded segment m-padded-tb-large">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="eleven wide column">
+                                <h3 class="ui header">MYSQL从入门到删库</h3>
+                                <p>比如:计算机\AOSP on
+                                    XXXXX\内部共享存储空间\TWRP\BACKUPS\HT77K0202792\1972-11-12--05-10-40_aosp_marlin-userdebug_712_N2G47O_engcjc2020</p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui mini link list horizontal">
+                                            <div class="item">
+                                                <!--                                                avatar类似园-->
+                                                <img src="https://picsum.photos/seed/picsum/30/20" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="#" class="header">LEEYANGY</a></div>
+                                            </div>
+                                            <!--                                            发布日期-->
+                                            <div class="item">
+                                                <i class="calendar icon"></i>2021.12.09
+                                            </div>
+                                            <!--                                            浏览次数-->
+                                            <div class="item">
+                                                <i class="eye icon"></i>666
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column ">
+                                        <a href="#" target="_blank" class="ui blue basic label">数据库</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ui five wide column">
+                                <a href="#" target="_blank">
+                                    <img src="https://picsum.photos/seed/picsum/300/200" alt=""
+                                         class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--                    demo1 end-->
+                    <!--                    demo2 start-->
+                    <div class="ui vertical padded segment m-padded-tb-large">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="ui eleven wide column">
+                                <h3 class="ui header">MYSQL从入门到删库</h3>
+                                <p>比如:计算机\AOSP on
+                                    XXXXX\内部共享存储空间\TWRP\BACKUPS\HT77K0202792\1972-11-12--05-10-40_aosp_marlin-userdebug_712_N2G47O_engcjc2020</p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui link list horizontal">
+                                            <div class="item">
+                                                <!--                                                avatar类似园-->
+                                                <img src="https://picsum.photos/seed/picsum/30/20" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="#" class="header">LEEYANGY</a></div>
+                                            </div>
+                                            <!--                                            发布日期-->
+                                            <div class="item">
+                                                <i class="calendar icon"></i>2021.12.09
+                                            </div>
+                                            <!--                                            浏览次数-->
+                                            <div class="item">
+                                                <i class="eye icon"></i>666
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="right aligned five wide column ">
+                                        <a href="#" target="_blank" class="ui blue basic label">数据库</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="ui five wide column">
+                                <a href="#" target="_blank">
+                                    <img src="https://picsum.photos/seed/picsum/300/200" alt=""
+                                         class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                    demo2 end-->
+                    <!--                    demo3 start-->
+                    <div class="ui vertical padded segment m-padded-tb-large">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="ui eleven wide column">
+                                <h3 class="ui header">MYSQL从入门到删库</h3>
+                                <p class="m-text-thin">比如:计算机\AOSP on
+                                    XXXXX\内部共享存储空间\TWRP\BACKUPS\HT77K0202792\1972-11-12--05-10-40_aosp_marlin-userdebug_712_N2G47O_engcjc2020</p>
+                                <div class="ui stackable grid">
+                                    <div class="row">
+                                        <div class="eleven wide column">
+                                            <div class="ui mini link list horizontal">
+                                                <div class="item">
+                                                    <!--                                                avatar类似园-->
+                                                    <img src="https://picsum.photos/seed/picsum/30/20" alt=""
+                                                         class="ui avatar image">
+                                                    <div class="content"><a href="#" class="header">LEEYANGY</a></div>
+                                                </div>
+                                                <!--                                            发布日期-->
+                                                <div class="item">
+                                                    <i class="calendar icon"></i>2021.12.09
+                                                </div>
+                                                <!--                                            浏览次数-->
+                                                <div class="item">
+                                                    <i class="eye icon"></i>666
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="right aligned five wide column ">
+                                        <a href="#" target="_blank" class="ui blue basic label">数据库</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="five wide column">
+                                <a href="#" target="_blank">
+                                    <img src="https://picsum.photos/seed/picsum/300/200" alt=""
+                                         class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                    demo3 end-->
+                    <!--                    demo4 start-->
+                    <div class="ui vertical padded segment mobile reversed">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="ui eleven wide column">
+                                <h3 class="ui header">MYSQL从入门到删库</h3>
+                                <p>比如:计算机\AOSP on
+                                    XXXXX\内部共享存储空间\TWRP\BACKUPS\HT77K0202792\1972-11-12--05-10-40_aosp_marlin-userdebug_712_N2G47O_engcjc2020</p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui link list horizontal">
+                                            <div class="item">
+                                                <!--                                                avatar类似园-->
+                                                <img src="https://picsum.photos/seed/picsum/30/20" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="#" class="header">LEEYANGY</a></div>
+                                            </div>
+                                            <!--                                            发布日期-->
+                                            <div class="item">
+                                                <i class="calendar icon"></i>2021.12.09
+                                            </div>
+                                            <!--                                            浏览次数-->
+                                            <div class="item">
+                                                <i class="eye icon"></i>666
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="right aligned five wide column ">
+                                        <a href="#" target="_blank" class="ui blue basic label">数据库</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="ui five wide column">
+                                <a href="#" target="_blank">
+                                    <img src="https://picsum.photos/seed/picsum/300/200" alt=""
+                                         class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                    demo4 end-->
+                </div>
+                <!--                中间内容结束-->
+
+                <!--                返回按钮设计开始-->
+                <div class="ui attached bottom segment">
+                    <div class="ui middle aligned two column grid">
+                        <!--                        左边上一页-->
+                        <div class="column">
+                            <a href="#" class="ui blue button">上一页</a>
+                        </div>
+
+                        <!--                        右边下一页-->
+                        <div class="column right aligned">
+                            <a href="#" class="ui blue button">下一页</a>
+                        </div>
+                    </div>
+                </div>
+                <!--             fiiter  end-->
+                <!--                中间文章  结束-->
+                <!--            返回按钮设计结束-->
+            </div>
+
+
+            <!--        右边栏-->
+            <div class="five wide column">
+
+                <!--                分类-->
+                <div class="ui segments">
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="idea icon"></i>分类
+                            </div>
+                            <div class="right aligned column">
+                                <a href="#" target="_blank">更多<i class="angle double right icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui teal segment">
+                        <div class="ui fluid vertical menu">
+                            <a href="#" target="_blank" class="item">1111
+                                <div class="ui teal basic left pointing label">13</div>
+                            </a>
+                            <a href="#" target="_blank" class="item">1111
+                                <div class="ui teal basic left pointing label">13</div>
+                            </a>
+                            <a href="#" target="_blank" class="item">1111
+                                <div class="ui teal basic left pointing label">13</div>
+                            </a>
+                            <a href="#" target="_blank" class="item">1111
+                                <div class="ui teal basic left pointing label">13</div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--                标签-->
+                <div class="ui segments m-margin-top-large">
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="tags icon"></i>标签
+                            </div>
+                            <div class="right aligned column">
+                                <a href="#" target="_blank">更多<i class="angle double right icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui teal segment">
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">方法论
+                            <div class="detail">23</div>
+                        </a>
+
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">计算机科学
+                            <div class="detail">23</div>
+                        </a>
+
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">数据库
+                            <div class="detail">23</div>
+                        </a>
+
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">编译原理
+                            <div class="detail">23</div>
+                        </a>
+
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">编译原理
+                            <div class="detail">23</div>
+                        </a>
+
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">方法论
+                            <div class="detail">23</div>
+                        </a>
+
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">计算机科学
+                            <div class="detail">23</div>
+                        </a>
+
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">数据库
+                            <div class="detail">23</div>
+                        </a>
+
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">编译原理
+                            <div class="detail">23</div>
+                        </a>
+
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">编译原理
+                            <div class="detail">23</div>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!--                最新推荐-->
+                <div class="ui segments m-margin-top-large">
+                    <div class="ui secondary segment">
+                        <div class="column">
+                            <i class="bookmark icon"></i>推荐
+                        </div>
+
+                        <div class="ui segment">
+                            <a href="#" target="_blank" class="m-black m-text-thin">1111
+                            </a>
+                        </div>
+
+                        <div class="ui segment">
+                            <a href="#" target="_blank" class="m-black">1111
+                            </a>
+                        </div>
+
+                        <div class="ui segment">
+                            <a href="#" target="_blank" class="m-black">1111
+                            </a>
+                        </div>
+
+                        <div class="ui segment">
+                            <a href="#" target="_blank" class="m-black">1111
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--                二维码-->
+                <h4 class="ui horizontal divider header m-margin-top-large">扫码关注我</h4>
+                <div class="ui centered card" style="width: 11em">
+                    <img src="../static/images/wechat.jpg" alt="" class="ui rounded image">
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--结束-->
+<!--中间页面-->
+<!--<br><br><br><br><br><br><br>-->
+
+<!--            footer  start-->
+<!--底部-->
+<!--开始-->
+<footer class="ui inverted segment vertical m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/wechat.jpg" class="ui rounded image " alt="" style="width: 100px">
+                    </div>
+                </div>
+            </div>
+
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">MYSQL从删库到跑路</a>
+                    <a href="#" class="item">数据结构</a>
+                    <a href="#" class="item">操作系统原理</a>
+                </div>
+            </div>
+
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">Email: liyangyang0713@foxmail.com</a>
+                    <a href="#" class="item">QQ:</a>
+                    <a href="#" class="item">1787294587</a>
+                </div>
+            </div>
+
+            <div class="seven wide column">
+                <h4 class="ui inverted m-text-thin header m-text-spaced">Blog</h4>
+                <p>这是我的个人博客,分享关于编程,思考的相关内容...</p>
+            </div>
+
+        </div>
+
+        <!--        加一条线，相当于分割上下内容-->
+        <div class="ui inverted section divider"></div>
+        <!--    备案号-->
+        <p class="link m-text-spaced">©2021 leeyangy.xyz 版权所有</p>
+        <a class="m-text-spaced" hidefocus='true' href='https://beian.miit.gov.cn' target='_blank' rel='nofollow'>
+            备案号：桂ICP备2021009674号</a>
+    </div>
+
+</footer>
+<!--结束-->
+<!--底部-->
+<!--给导航栏中的a标签加入一个点击事件，绑定一个m-item类，在jq中绑定它，调用jq提供的toogleClass方法，如果有这个标签就隐藏，反之取消隐藏-->
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    })
+</script>
+
+</body>
+</html>
