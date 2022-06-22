@@ -16,14 +16,14 @@
     <link rel="stylesheet" href="../static/css/typo.css">
     <!--引入animate.css-->
     <link rel="stylesheet" href="../static/css/animate.css">
-<!--        include prism.css && js-->
+    <!--        include prism.css && js-->
     <link rel="stylesheet" href="../static/lib/prisem/prism.css">
     <script src="../static/lib/prisem/prism.js"></script>
 </head>
 <body>
 <!--导航栏-->
 <!--开始-->
-<nav class="ui inverted attached segment m-padded-tb-mini">
+<nav class="ui inverted attached segment m-padded-tb-mini" id="topp">
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui blue header item">Blog</h2>
@@ -94,9 +94,9 @@
             <!--            这里存放文章主要内容-->
             <div id="content" class="typo typo-selection m-padded-lr-responsive m-padded-tb-large">
 
-            <pre><code class="language-css">p{color:red}</code></pre>
+                <pre><code class="language-css">p{color:red}</code></pre>
 
-            <pre><code class="language-css">
+                <pre><code class="language-css">
 <!--                p{color: blue}-->
                 /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
 h1,h2,h3,h4,h5,h6 {
@@ -590,7 +590,7 @@ h5,h6{font-size:1em;}
         </div>
 
         <!--        留言组件使用-->
-        <div class="ui bottom attached segment">
+        <div class="ui bottom attached segment" id="comment-container">
             <!--            留言区域 1 -->
             <div class="ui teal segment">
                 <div class="ui comments">
@@ -703,6 +703,23 @@ h5,h6{font-size:1em;}
 
     </div>
 </div>
+
+
+<div class="m-padded m-fixed m-right-bottom">
+    <div class="ui vertical icon buttons">
+        <a href="#topp" class="ui teal button"><i class="chevron up icon"></i></a>
+        <!--    <a href="#topp" class="ui teal button">顶部</a>-->
+        <button type="button" class="ui toc-button teal button">目录</button>
+        <!--    跳转到留言区域-->
+        <a href="#comment-container" class="ui teal button">留言</a>
+        <button type="button" class="ui icon button"><i class="weixin icon"></i></button>
+    </div>
+</div>
+
+<div class="ui toc-container flowing popup  transition hidden">
+    生成的目录
+</div>
+
 <!--结束-->
 <!--中间页面-->
 <!--<br><br><br><br><br><br><br>-->
@@ -770,6 +787,12 @@ h5,h6{font-size:1em;}
         popup: $('.payQR.popup'),
         on: 'click',
         position: 'bottom center'
+    });
+
+    $('.toc-button').popup({
+        popup: $('.toc-container.popup'),
+        on: 'hover',
+        position: 'left center'
     });
 </script>
 
