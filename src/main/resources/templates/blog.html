@@ -17,8 +17,17 @@
     <!--引入animate.css-->
     <link rel="stylesheet" href="../static/css/animate.css">
     <!--        include prism.css && js-->
-    <link rel="stylesheet" href="../static/lib/prisem/prism.css">
-    <script src="../static/lib/prisem/prism.js"></script>
+    <link rel="stylesheet" href="../static/lib/prism/prism.css">
+    <script src="../static/lib/prism/prism.js"></script>
+    <!--    include tocbot-->
+    <script src="../static/lib/tocbot/tocbot.js"></script>
+    <link rel="script" href="../static/lib/tocbot/tocbot.css">
+<!--    include generate qrcode-->
+    <script src="../static/lib/qrcode/qrcode.js"></script>
+<!--    include scrollTo-->
+    <script src="../static/lib/scrollTo/jquery.scrollTo.js"></script>
+<!--        include waypoints-->
+    <script src="../static/lib/waypoints/jquery.waypoints.js"></script>
 </head>
 <body>
 <!--导航栏-->
@@ -50,7 +59,7 @@
 
 <!--中间页面-->
 <!--开始-->
-<div class="m-padded-tb-big m-container-small animated pulse">
+<div id="start" class="m-padded-tb-big m-container-small animated pulse">
     <div class="ui container">
         <div class="ui top attached segment">
             <!--            head-->
@@ -92,7 +101,8 @@
             <!--            这是标题-->
             <h2 class="ui center aligned header">计算机网络学习1</h2>
             <!--            这里存放文章主要内容-->
-            <div id="content" class="typo typo-selection m-padded-lr-responsive m-padded-tb-large">
+            <!--            js-toc-content-->
+            <div id="content" class="typo typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large">
 
                 <pre><code class="language-css">p{color:red}</code></pre>
 
@@ -563,7 +573,6 @@ h5,h6{font-size:1em;}
                 </div>
             </div>
 
-
         </div>
 
         <div class="ui attached positive message">
@@ -705,19 +714,28 @@ h5,h6{font-size:1em;}
 </div>
 
 
-<div class="m-padded m-fixed m-right-bottom">
+<div id="toolBars" class="m-padded m-fixed m-right-bottom" style="display: none">
     <div class="ui vertical icon buttons">
-        <a href="#topp" class="ui teal button"><i class="chevron up icon"></i></a>
+        <div id="toTop-button" href="#topp" class="ui teal button"><i class="chevron up icon"></i></div>
         <!--    <a href="#topp" class="ui teal button">顶部</a>-->
         <button type="button" class="ui toc-button teal button">目录</button>
         <!--    跳转到留言区域-->
         <a href="#comment-container" class="ui teal button">留言</a>
-        <button type="button" class="ui icon button"><i class="weixin icon"></i></button>
+        <button type="button" class="ui wechat icon button"><i class="weixin icon"></i></button>
+        <div id="toBottom-button" href="#topp" class="ui teal button"><i class="chevron down icon"></i></div>
     </div>
 </div>
 
-<div class="ui toc-container flowing popup  transition hidden">
-    生成的目录
+<!--显示目录-->
+<div class="ui toc-container flowing popup  transition hidden" style="width: 100px!important;">
+    <ol class="js-toc">
+
+    </ol>
+</div>
+
+<!--微信阅读-->
+<div id="qrcode" class="ui wechatReadQR flowing popup transition hidden m-padded-mini">
+
 </div>
 
 <!--结束-->
@@ -789,11 +807,73 @@ h5,h6{font-size:1em;}
         position: 'bottom center'
     });
 
+    tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.js-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.js-toc-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+        // For headings inside relative or absolute positioned containers within content.
+        // hasInnerContainers: true,
+    });
+
     $('.toc-button').popup({
         popup: $('.toc-container.popup'),
-        on: 'hover',
+        on: 'click',
         position: 'left center'
     });
+
+    // wechat continue
+    $('.wechat').popup({
+        popup: $('.wechatReadQR'),
+        // 不要点击事件就可以鼠标浮动过去显示
+        // 点击触发
+        on:'click',
+        // 掠过
+        // on: 'hover',
+        position: 'left center'
+    });
+
+    // generate qrcode
+    var qrcode = new QRCode("qrcode", {
+        text: "http://jindo.dev.naver.com/collie",
+        width: 100,
+        height: 100,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+
+    // 回滚
+    $('#toTop-button').click(function () {
+        $(window).scrollTo(0,2000);
+    })
+
+    $('#toBottom-button').click(function () {
+        $(window).scrollTo(100000000,10000);
+    })
+
+    // init waypoints
+    // var waypoint = new Waypoint({
+    //     element: document.getElementById('basic-waypoint'),
+    //     handler: function() {
+    //         notify('Basic waypoint triggered')
+    //     }
+    // })
+    var waypoint = new Waypoint({
+        element: document.getElementById('start'),
+        handler: function(direction) {
+            if(direction=="down"){
+                $('#toolBars').show(1000);
+            }else {
+                $('#toolBars').hide(500);
+            }
+            // notify('Basic waypoint triggered')
+            // console.log('Scrolled to waypoints!'+ direction);
+        }
+    })
+
 </script>
 
 </body>
