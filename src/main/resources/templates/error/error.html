@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/_fragments::head('错误页面')"></head>
+<body>
+<!--导航栏-->
+<!--开始-->
+<nav th:replace="commons/_fragments::menu(0)"></nav>
+<!--结束-->
+<!--导航栏-->
+<body>
+<div class="error-page">
+    <div class="content">
+        <h1 data-text="404">error</h1>
+        <h4 data-text="Opps! Page not found">Opps! Page not found</h4>
+        <p>Sorry, the page you're looking for doesn't exist. If you think something is broken, report a problem.</p>
+        <div class="btns">
+            <a href="#" th:href="@{/}">return home</a>
+            <a href="#" th:href="@{/}">report problem</a>
+        </div>
+    </div>
+
+<!--    <div>-->
+<!--        <div th:utext="'&lt;!&#45;&#45;'" th:remove="tag"></div>-->
+<!--        <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>-->
+<!--        <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>-->
+<!--        <ul th:remove="tag">-->
+<!--            <li th:each="st : ${exception.stackTrace}" th:remove="tag">-->
+<!--                <span th:utext="${st}" th:remove="tag">-->
+<!--                </span>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--        <div th:utext="&#45;&#45;&gt;'" th:remove="tag"></div>-->
+<!--    </div>-->
+
+
+
+</div>
+<!--            footer  start-->
+<!--底部-->
+<!--开始-->
+<footer th:replace="commons/_fragments::footer"></footer>
+<!--结束-->
+<!--底部-->
+</body>
+</html>
