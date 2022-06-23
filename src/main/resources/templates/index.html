@@ -13,33 +13,7 @@
 <!--    <link rel="stylesheet" href="../static/css/mycss.css" th:href="@{/css/mycss.css}">-->
 <!--</head>-->
 <body>
-<!--导航栏-->
-<!--开始-->
-<nav class="ui inverted attached segment m-padded-tb-mini">
-    <div class="ui container">
-        <div class="ui inverted secondary stackable menu">
-            <h2 class="ui blue header item">Blog</h2>
-            <a href="index.html" class="active m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
-            <a href="types.html" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
-            <a href="tags.html" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
-            <a href="archives.html" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
-            <a href="about.html" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
-            <div class="right m-item item m-mobile-hide">
-                <!--                    transparent透明   inverted 反装颜色-->
-                <div class="ui icon inverted transparent input">
-                    <input type="text" placeholder="Search.......">
-                    <i class="search link icon"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a href="#" class="ui black menu toggle button icon m-top-right m-mobile-show">
-        <i class="sidebar icon"></i>
-    </a>
-</nav>
-<!--结束-->
-<!--导航栏-->
-
+<nav th:replace="commons/_fragments::menu(1)"></nav>
 <!--中间页面-->
 <!--开始-->
 <div class="m-padded-tb-big m-container">
@@ -112,13 +86,14 @@
                     <!--                    demo2 start-->
                     <div class="ui vertical padded segment m-padded-tb-large">
                         <div class="ui mobile reversed stackable grid">
-                            <div class="ui eleven wide column">
-                                <h3 class="ui header">MYSQL从入门到删库</h3>
-                                <p>比如:计算机\AOSP on
-                                    XXXXX\内部共享存储空间\TWRP\BACKUPS\HT77K0202792\1972-11-12--05-10-40_aosp_marlin-userdebug_712_N2G47O_engcjc2020</p>
+                            <div class="eleven wide column">
+                                <h3 class="ui header"><a href="/version">博客系统更新说明</a></h3>
+                                <p>这里是博客系统更新说明页</p>
+                                <p>1.项目目前在还在不断完善，敬请期待</p>
+                                <p>2.项目目前在还在不断完善，敬请期待</p>
                                 <div class="ui stackable grid">
                                     <div class="eleven wide column">
-                                        <div class="ui link list horizontal">
+                                        <div class="ui mini link list horizontal">
                                             <div class="item">
                                                 <!--                                                avatar类似园-->
                                                 <img src="https://picsum.photos/seed/picsum/30/20" alt=""
@@ -133,13 +108,12 @@
                                             <div class="item">
                                                 <i class="eye icon"></i>666
                                             </div>
+
                                         </div>
                                     </div>
-
                                     <div class="right aligned five wide column ">
                                         <a href="#" target="_blank" class="ui blue basic label">数据库</a>
                                     </div>
-
                                 </div>
                             </div>
 
@@ -150,64 +124,19 @@
                                 </a>
                             </div>
                         </div>
+
                     </div>
                     <!--                    demo2 end-->
                     <!--                    demo3 start-->
                     <div class="ui vertical padded segment m-padded-tb-large">
                         <div class="ui mobile reversed stackable grid">
-                            <div class="ui eleven wide column">
-                                <h3 class="ui header">MYSQL从入门到删库</h3>
-                                <p class="m-text-thin">比如:计算机\AOSP on
-                                    XXXXX\内部共享存储空间\TWRP\BACKUPS\HT77K0202792\1972-11-12--05-10-40_aosp_marlin-userdebug_712_N2G47O_engcjc2020</p>
-                                <div class="ui stackable grid">
-                                    <div class="row">
-                                        <div class="eleven wide column">
-                                            <div class="ui mini link list horizontal">
-                                                <div class="item">
-                                                    <!--                                                avatar类似园-->
-                                                    <img src="https://picsum.photos/seed/picsum/30/20" alt=""
-                                                         class="ui avatar image">
-                                                    <div class="content"><a href="#" class="header">LEEYANGY</a></div>
-                                                </div>
-                                                <!--                                            发布日期-->
-                                                <div class="item">
-                                                    <i class="calendar icon"></i>2021.12.09
-                                                </div>
-                                                <!--                                            浏览次数-->
-                                                <div class="item">
-                                                    <i class="eye icon"></i>666
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="right aligned five wide column ">
-                                        <a href="#" target="_blank" class="ui blue basic label">数据库</a>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="five wide column">
-                                <a href="#" target="_blank">
-                                    <img src="https://picsum.photos/seed/picsum/300/200" alt=""
-                                         class="ui rounded image">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--                    demo3 end-->
-                    <!--                    demo4 start-->
-                    <div class="ui vertical padded segment mobile reversed">
-                        <div class="ui mobile reversed stackable grid">
-                            <div class="ui eleven wide column">
-                                <h3 class="ui header">MYSQL从入门到删库</h3>
-                                <p>比如:计算机\AOSP on
-                                    XXXXX\内部共享存储空间\TWRP\BACKUPS\HT77K0202792\1972-11-12--05-10-40_aosp_marlin-userdebug_712_N2G47O_engcjc2020</p>
+                            <div class="eleven wide column">
+                                <h3 class="ui header">使用spring构建的博客系统</h3>
+                                <p>这里是测试内容</p>
+                                <p>项目目前在还在不断完善，敬请期待</p>
                                 <div class="ui stackable grid">
                                     <div class="eleven wide column">
-                                        <div class="ui link list horizontal">
+                                        <div class="ui mini link list horizontal">
                                             <div class="item">
                                                 <!--                                                avatar类似园-->
                                                 <img src="https://picsum.photos/seed/picsum/30/20" alt=""
@@ -222,13 +151,12 @@
                                             <div class="item">
                                                 <i class="eye icon"></i>666
                                             </div>
+
                                         </div>
                                     </div>
-
                                     <div class="right aligned five wide column ">
                                         <a href="#" target="_blank" class="ui blue basic label">数据库</a>
                                     </div>
-
                                 </div>
                             </div>
 
@@ -239,8 +167,138 @@
                                 </a>
                             </div>
                         </div>
+
+                    </div>
+                    <!--                    demo3 end-->
+                    <!--                    demo4 start-->
+                    <div class="ui vertical padded segment m-padded-tb-large">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="eleven wide column">
+                                <h3 class="ui header">使用spring构建的博客系统</h3>
+                                <p>这里是测试内容</p>
+                                <p>项目目前在还在不断完善，敬请期待</p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui mini link list horizontal">
+                                            <div class="item">
+                                                <!--                                                avatar类似园-->
+                                                <img src="https://picsum.photos/seed/picsum/30/20" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="#" class="header">LEEYANGY</a></div>
+                                            </div>
+                                            <!--                                            发布日期-->
+                                            <div class="item">
+                                                <i class="calendar icon"></i>2021.12.09
+                                            </div>
+                                            <!--                                            浏览次数-->
+                                            <div class="item">
+                                                <i class="eye icon"></i>666
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column ">
+                                        <a href="#" target="_blank" class="ui blue basic label">数据库</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ui five wide column">
+                                <a href="#" target="_blank">
+                                    <img src="https://picsum.photos/seed/picsum/300/200" alt=""
+                                         class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                     <!--                    demo4 end-->
+                    <!--                    demo5 start-->
+                    <div class="ui vertical padded segment m-padded-tb-large">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="eleven wide column">
+                                <h3 class="ui header">使用spring构建的博客系统</h3>
+                                <p>这里是测试内容</p>
+                                <p>项目目前在还在不断完善，敬请期待</p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui mini link list horizontal">
+                                            <div class="item">
+                                                <!--                                                avatar类似园-->
+                                                <img src="https://picsum.photos/seed/picsum/30/20" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="#" class="header">LEEYANGY</a></div>
+                                            </div>
+                                            <!--                                            发布日期-->
+                                            <div class="item">
+                                                <i class="calendar icon"></i>2021.12.09
+                                            </div>
+                                            <!--                                            浏览次数-->
+                                            <div class="item">
+                                                <i class="eye icon"></i>666
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column ">
+                                        <a href="#" target="_blank" class="ui blue basic label">数据库</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ui five wide column">
+                                <a href="#" target="_blank">
+                                    <img src="https://picsum.photos/seed/picsum/300/200" alt=""
+                                         class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--                    demo5 end-->
+                    <!--                    demo6 start-->
+                    <div class="ui vertical padded segment m-padded-tb-large">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="eleven wide column">
+                                <h3 class="ui header">使用spring构建的博客系统</h3>
+                                <p>这里是测试内容</p>
+                                <p>项目目前在还在不断完善，敬请期待</p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui mini link list horizontal">
+                                            <div class="item">
+                                                <!--                                                avatar类似园-->
+                                                <img src="https://picsum.photos/seed/picsum/30/20" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="#" class="header">LEEYANGY</a></div>
+                                            </div>
+                                            <!--                                            发布日期-->
+                                            <div class="item">
+                                                <i class="calendar icon"></i>2021.12.09
+                                            </div>
+                                            <!--                                            浏览次数-->
+                                            <div class="item">
+                                                <i class="eye icon"></i>666
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column ">
+                                        <a href="#" target="_blank" class="ui blue basic label">数据库</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ui five wide column">
+                                <a href="#" target="_blank">
+                                    <img src="https://picsum.photos/seed/picsum/300/200" alt=""
+                                         class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--                    demo6 end-->
                 </div>
                 <!--                中间内容结束-->
 
@@ -394,7 +452,6 @@
                     <img src="/images/wechat.jpg" alt="" class="ui rounded image">
                 </div>
 
-
             </div>
         </div>
     </div>
@@ -407,61 +464,11 @@
 <!--            footer  start-->
 <!--底部-->
 <!--开始-->
-<footer class="ui inverted segment vertical m-padded-tb-massive">
-    <div class="ui center aligned container">
-        <div class="ui inverted divided stackable grid">
-
-            <div class="three wide column">
-                <div class="ui inverted link list">
-                    <div class="item">
-<!--                        纯html-->
-<!--                        <img src="../static/images/wechat.jpg" class="ui rounded image " alt="" style="width: 100px">-->
-<!--                        springboot-->
-                        <img src="/images/wechat.jpg" class="ui rounded image " alt="" style="width: 100px">
-                    </div>
-                </div>
-            </div>
-
-            <div class="three wide column">
-                <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item">MYSQL从删库到跑路</a>
-                    <a href="#" class="item">数据结构</a>
-                    <a href="#" class="item">操作系统原理</a>
-                </div>
-            </div>
-
-            <div class="three wide column">
-                <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item">Email: liyangyang0713@foxmail.com</a>
-                    <a href="#" class="item">QQ:</a>
-                    <a href="#" class="item">1787294587</a>
-                </div>
-            </div>
-
-            <div class="seven wide column">
-                <h4 class="ui inverted m-text-thin header m-text-spaced">Blog</h4>
-                <p>这是我的个人博客,分享关于编程,思考的相关内容...</p>
-            </div>
-
-        </div>
-
-        <!--        加一条线，相当于分割上下内容-->
-        <div class="ui inverted section divider"></div>
-        <!--    备案号-->
-        <p class="link m-text-spaced">©2021 leeyangy.xyz 版权所有</p>
-        <a class="m-text-spaced" hidefocus='true' href='https://beian.miit.gov.cn' target='_blank' rel='nofollow'>
-            备案号：桂ICP备2021009674号</a>
-    </div>
-
-</footer>
+<footer th:replace="commons/_fragments::footer"></footer>
 <!--结束-->
 <!--底部-->
 <!--给导航栏中的a标签加入一个点击事件，绑定一个m-item类，在jq中绑定它，调用jq提供的toogleClass方法，如果有这个标签就隐藏，反之取消隐藏-->
 <!--引入资源-->
-<script src="../static/js/jquery-3.6.0.js" th:src="@{/js/jquery-3.6.0.js}"></script>
-<script src="../static/semantic/semantic.js" th:src="@{/semantic/semantic.min.js}"></script>
 <script>
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');

@@ -6,14 +6,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[[${title}]]</title>
-    <link rel="stylesheet" href="../../static/css/mycss.css" th:href="@{/css/mycss.css}">
-    <link rel="stylesheet" href="../../static/css/typo.css" th:href="@{/css/typo.css}">
-    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.css" th:href="@{/lib/editormd/css/editormd.css}" />
-    <link rel="stylesheet" href="../../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
-    <link rel="stylesheet" href="../../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
-    <link rel="stylesheet" href="../../static/semantic/semantic.css" th:href="@{/semantic/semantic.css}">
+    <link rel="stylesheet" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" th:href="@{/css/mycss.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/lib/tocbot/tocbot.css}">
+    <link rel="stylesheet" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" th:href="@{/semantic/semantic.css}">
+    <link rel="stylesheet" th:href="@{/lib/tocbot/tocbot.css}">
+    <link rel="stylesheet" th:href="@{/lib/editormd/css/editormd.css}"/>
+    <link rel="stylesheet" th:href="@{/lib/scrollTo/jquery.scrollTo.js}">
+    <script th:src="@{/lib/qrcode/qrcode.js}"></script>
+    <script th:src="@{/lib/tocbot/tocbot.js}"></script>
+    <script th:src="@{/js/jquery-3.6.0.js}"></script>
+    <script th:src="@{/semantic/semantic.min.js}"></script>
+    <script th:src="@{/lib/waypoints/jquery.waypoints.js}"></script>
 </head>
 <body>
+<!--导航栏-->
+<!--开始-->
+<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui blue header item">Blog</h2>
+            <a href="/index" class="m-item item m-mobile-hide" th:classappend="${n==1}? 'active'"><i class="home icon"></i>首页</a>
+            <a href="/types" class="m-item item m-mobile-hide" th:classappend="${n==2}? 'active'"><i class="idea icon"></i>分类</a>
+            <a href="/tags" class="m-item item m-mobile-hide" th:classappend="${n==3}? 'active'"><i class="tags icon"></i>标签</a>
+            <a href="/archives" class="m-item item m-mobile-hide" th:classappend="${n==4}? 'active'"><i class="clone icon"></i>归档</a>
+            <a href="/about" class="m-item item m-mobile-hide" th:classappend="${n==5}? 'active'"><i class="info icon"></i>关于我</a>
+            <div class="right m-item item m-mobile-hide">
+                <!--                    transparent透明   inverted 反装颜色-->
+                <div class="ui icon inverted transparent input">
+                    <input type="text" placeholder="Search.......">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui black menu toggle button icon m-top-right m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+<!--结束-->
+<!--导航栏-->
 
+
+<!--            footer  start-->
+<!--底部-->
+<!--开始-->
+<footer th:fragment="footer" class="ui inverted segment vertical m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <!--                        纯html-->
+                        <!--                        <img src="../static/images/wechat.jpg" class="ui rounded image " alt="" style="width: 100px">-->
+                        <!--                        springboot-->
+                        <img src="/images/wechat.jpg" class="ui rounded image " alt="" style="width: 100px">
+                    </div>
+                </div>
+            </div>
+
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">MYSQL从删库到跑路</a>
+                    <a href="#" class="item">数据结构</a>
+                    <a href="#" class="item">操作系统原理</a>
+                </div>
+            </div>
+
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">Email: liyangyang0713@foxmail.com</a>
+                    <a href="#" class="item">QQ:</a>
+                    <a href="#" class="item">1787294587</a>
+                </div>
+            </div>
+
+            <div class="seven wide column">
+                <h4 class="ui inverted m-text-thin header m-text-spaced">Blog</h4>
+                <p>这是我的个人博客,分享关于编程,思考的相关内容...</p>
+            </div>
+
+        </div>
+
+        <!--        加一条线，相当于分割上下内容-->
+        <div class="ui inverted section divider"></div>
+        <!--    备案号-->
+        <p class="link m-text-spaced">©2021 leeyangy.xyz 版权所有</p>
+        <a class="m-text-spaced" hidefocus='true' href='https://beian.miit.gov.cn' target='_blank' rel='nofollow'>
+            备案号：桂ICP备2021009674号</a>
+    </div>
+
+</footer>
+<!--结束-->
+<!--底部-->
 </body>
 </html>
