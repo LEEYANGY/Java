@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!--    引入移动端-->
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <!--    引入semanticUI-->
-    <title>首页</title>
-    <link rel="stylesheet" href="../static/semantic/semantic.css">
-    <!--引入资源-->
-    <script src="../static/js/jquery-3.6.0.js"></script>
-    <script src="../static/semantic/semantic.js"></script>
-    <!--    引入自己写的css-->
-    <link rel="stylesheet" href="../static/css/mycss.css">
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/_fragments::head('首页')"></head>
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    &lt;!&ndash;    引入移动端&ndash;&gt;-->
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1.0">-->
+<!--    &lt;!&ndash;    引入semanticUI&ndash;&gt;-->
+<!--    <title>首页</title>-->
+<!--    <link rel="stylesheet" href="../static/semantic/semantic.css" th:href="@{/semantic/semantic.css}">-->
+<!--    &lt;!&ndash;    引入自己写的css&ndash;&gt;-->
+<!--    <link rel="stylesheet" href="../static/css/mycss.css" th:href="@{/css/mycss.css}">-->
+<!--</head>-->
 <body>
 <!--导航栏-->
 <!--开始-->
@@ -71,9 +70,9 @@
                     <div class="ui vertical padded segment m-padded-tb-large">
                         <div class="ui mobile reversed stackable grid">
                             <div class="eleven wide column">
-                                <h3 class="ui header">MYSQL从入门到删库</h3>
-                                <p>比如:计算机\AOSP on
-                                    XXXXX\内部共享存储空间\TWRP\BACKUPS\HT77K0202792\1972-11-12--05-10-40_aosp_marlin-userdebug_712_N2G47O_engcjc2020</p>
+                                <h3 class="ui header">使用spring构建的博客系统</h3>
+                                <p>这里是测试内容</p>
+                                <p>项目目前在还在不断完善，敬请期待</p>
                                 <div class="ui stackable grid">
                                     <div class="eleven wide column">
                                         <div class="ui mini link list horizontal">
@@ -389,7 +388,10 @@
                 <!--                二维码-->
                 <h4 class="ui horizontal divider header m-margin-top-large">扫码关注我</h4>
                 <div class="ui centered card" style="width: 11em">
-                    <img src="../static/images/wechat.jpg" alt="" class="ui rounded image">
+<!--                        纯html时候使用-->
+<!--                    <img src="../static/images/wechat.jpg" alt="" class="ui rounded image">-->
+<!--                    springboot时候使用-->
+                    <img src="/images/wechat.jpg" alt="" class="ui rounded image">
                 </div>
 
 
@@ -412,7 +414,10 @@
             <div class="three wide column">
                 <div class="ui inverted link list">
                     <div class="item">
-                        <img src="../static/images/wechat.jpg" class="ui rounded image " alt="" style="width: 100px">
+<!--                        纯html-->
+<!--                        <img src="../static/images/wechat.jpg" class="ui rounded image " alt="" style="width: 100px">-->
+<!--                        springboot-->
+                        <img src="/images/wechat.jpg" class="ui rounded image " alt="" style="width: 100px">
                     </div>
                 </div>
             </div>
@@ -454,6 +459,9 @@
 <!--结束-->
 <!--底部-->
 <!--给导航栏中的a标签加入一个点击事件，绑定一个m-item类，在jq中绑定它，调用jq提供的toogleClass方法，如果有这个标签就隐藏，反之取消隐藏-->
+<!--引入资源-->
+<script src="../static/js/jquery-3.6.0.js" th:src="@{/js/jquery-3.6.0.js}"></script>
+<script src="../static/semantic/semantic.js" th:src="@{/semantic/semantic.min.js}"></script>
 <script>
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
