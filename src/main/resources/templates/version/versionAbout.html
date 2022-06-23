@@ -4,16 +4,62 @@
 <body>
 <!--导航栏-->
 <!--开始-->
-<nav th:replace="commons/_fragments::menu(1)"></nav>
+<nav th:replace="commons/_fragments::menu(0)"></nav>
 <!--结束-->
 <!--导航栏-->
 <body>
-
-</body>
+<div class="m-padded-tb-big m-container-small">
+    <div class="ui container">
+        <form action="#" method="post" class="ui form">
+            <!--            文章内容-->
+            <div class="field">
+                <!--                z-index 叠放层次-->
+                <div id="md-content" style="z-index: 1 !important;">
+                    <textarea placeholder="博客内容" name="content" style="display: none">
+```
+2021.12.01
+使用thymeleaf替换原有的html元素
+----
+2021.07.01
+使用springboot框架构建网站
+----
+2021.05.01
+基本网页设计
+```
+                    </textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 <!--            footer  start-->
 <!--底部-->
 <!--开始-->
 <footer th:replace="commons/_fragments::footer"></footer>
 <!--结束-->
 <!--底部-->
+<script>
+    // 初始化Markdown
+    var testEditor;
+    $(function () {
+        testEditor = editormd("md-content", {
+            width: "100%",
+            height: 640,
+            syncScrolling: "single",
+            path: "/lib/editormd/lib/"
+        });
+
+        /*
+        // or
+        testEditor = editormd({
+        id      : "test-editormd",
+        width   : "90%",
+        height  : 640,
+        path    : "../lib/"
+        });
+        */
+    });
+</script>
+</body>
+
 </html>
