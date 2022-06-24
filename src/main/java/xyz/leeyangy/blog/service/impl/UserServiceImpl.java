@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import xyz.leeyangy.blog.UserRepository;
 import xyz.leeyangy.blog.domain.User;
 import xyz.leeyangy.blog.service.UserService;
+import xyz.leeyangy.blog.utils.MD5Utils;
 
 /**
  * @author LEEYANGY
@@ -18,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User checkUser(String username, String password) {
-        User user=userRepository.findByUsernameAndPassword(username,password);
+        User user=userRepository.findByUsernameAndPassword(username, MD5Utils.code(password));
         return user;
     }
 }
