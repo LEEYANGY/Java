@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/_fragments::head('博客管理')"></head>
+<body>
+<!--导航栏-->
+<!--开始-->
+<nav th:replace="commons/_fragments::menu(0)"></nav>
+<!--结束-->
+<!--导航栏-->
+
+<!--二级导航-->
+<div class="ui attached pointing menu">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="blogs-input.html" class="item">发布</a>
+            <a href="blogs.html" class="active item">列表</a>
+        </div>
+    </div>
+</div>
+<!--中间页面-->
+<!--开始-->
+<div class="m-padded-tb-big m-container-small">
+    <div class="ui container">
+        <div class="ui success large raised message">
+            <h2>Hi,</h2>
+            <p>管理员欢迎登录</p>
+        </div>
+        <a th:href="@{/admin/loginout}">注销</a>
+    </div>
+</div>
+<!--结束-->
+<!--中间页面-->
+<!--<br><br><br><br><br><br><br>-->
+
+<!--            footer  start-->
+<!--底部-->
+<!--开始-->
+<footer th:replace="commons/_fragments::footer"></footer>
+<!--结束-->
+<!--底部-->
+<!--给导航栏中的a标签加入一个点击事件，绑定一个m-item类，在jq中绑定它，调用jq提供的toggleClass方法，如果有这个标签就隐藏，反之取消隐藏-->
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    // 赞赏二维码弹出
+    // id选择
+    // $('#payButton').popup({
+    //     popup: $('.payQR.popup'),
+    //     on: 'click',
+    //     position: 'bottom center'
+    // });
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    });
+</script>
+
+</body>
+</html>
