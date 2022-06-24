@@ -1,4 +1,4 @@
-package xyz.leeyangy.blog;
+package xyz.leeyangy.blog.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import xyz.leeyangy.blog.domain.User;
