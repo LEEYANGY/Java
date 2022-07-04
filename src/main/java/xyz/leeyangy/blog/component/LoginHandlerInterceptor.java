@@ -1,4 +1,4 @@
-package xyz.leeyangy.blog.handler;
+package xyz.leeyangy.blog.component;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
