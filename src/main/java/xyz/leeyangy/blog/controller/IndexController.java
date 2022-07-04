@@ -33,12 +33,6 @@ public class IndexController {
         return "Blog";
     }
 
-    @GetMapping("/about")
-    public String about() {
-        System.out.println("--------- about ---------");
-        return "about";
-    }
-
     @GetMapping("/archives")
     public String archives() {
         System.out.println("--------- archives ---------");
