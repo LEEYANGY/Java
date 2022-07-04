@@ -1,8 +1,24 @@
 package xyz.leeyangy.blog.controller.admmin;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import xyz.leeyangy.blog.domain.Blog;
+import xyz.leeyangy.blog.domain.BlogQuery;
+import xyz.leeyangy.blog.domain.User;
+import xyz.leeyangy.blog.service.BlogService;
+import xyz.leeyangy.blog.service.TagService;
+import xyz.leeyangy.blog.service.TypeService;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * @author LEEYANGY
@@ -12,9 +28,81 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class BlogController {
 
+    private final String INPUT = "/admin/blogs-input";
+    private final String REDIRECT = "redirect:/admin/blogs";
+    private final String LIST = "/admin/blogs";
+
+
+    @Autowired
+    private BlogService blogService;
+
+    @Autowired
+    private TypeService typeService;
+
+    @Autowired
+    private TagService tagService;
+
     @GetMapping("/blogs")
-    public String blogs(){
-        return "admin/blogs";
+    public String blogs(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+                        BlogQuery blog, Model model) {
+        model.addAttribute("types", typeService.listType());
+        model.addAttribute("page", blogService.listBlog(pageable, blog));
+        return LIST;
+    }
+
+    @PostMapping("/blogs/search")
+    public String search(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+                         BlogQuery blog, Model model) {
+        model.addAttribute("page", blogService.listBlog(pageable, blog));
+        return "/admin/blogs :: blogList";
+    }
+
+    @GetMapping("/blogs/input")
+    public String input(Model model) {
+        setTAT(model);
+        model.addAttribute("blog", new Blog());
+        return INPUT;
+    }
+
+    public void setTAT(Model model) {
+        model.addAttribute("tags", tagService.listTag());
+        model.addAttribute("types", typeService.listType());
+    }
+
+    @GetMapping("/blogs/{id}/edit")
+    public String input(@PathVariable Long id, Model model) {
+        setTAT(model);
+        Blog blog = blogService.getBlog(id);
+        blog.init();
+        model.addAttribute("blog", blog);
+        return INPUT;
+    }
+
+    @PostMapping("/blogs")
+    public String post(Blog blog, RedirectAttributes attributes, HttpSession session) {
+        blog.setUser((User) session.getAttribute("user"));
+        blog.setType(typeService.getType(blog.getType().getId()));
+        blog.setTags(tagService.listTag(blog.getTagIds()));
+
+        Blog b;
+
+        if (blog.getId() == null) {
+            b = blogService.saveBlog(blog);
+        } else {
+            b = blogService.updateBlog(blog.getId(), blog);
+        }
+        if (b == null) {
+            attributes.addFlashAttribute("message", "操作失败");
+        } else {
+            attributes.addFlashAttribute("message", "操作成功");
+        }
+        return REDIRECT;
+    }
+
+    @GetMapping("/blogs/{id}/delete")
+    public String deleteBlog(@PathVariable Long id) {
+        blogService.deleteBlog(id);
+        return REDIRECT;
     }
 
 }

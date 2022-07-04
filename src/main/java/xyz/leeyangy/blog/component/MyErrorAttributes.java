@@ -12,7 +12,7 @@ public class MyErrorAttributes extends DefaultErrorAttributes {
     @Override
     public Map<String, Object> getErrorAttributes(WebRequest webRequest, ErrorAttributeOptions options) {
         Map<String, Object> errorAttributes = super.getErrorAttributes(webRequest, options);
-        errorAttributes.put("author","leeyangy");
+        errorAttributes.put("author", "leeyangy");
         return errorAttributes;
     }
 }

@@ -7,7 +7,5 @@ import xyz.leeyangy.blog.domain.User;
  * @date 2022/6/24 17:00
  */
 public interface UserService {
-
-    User checkUser(String username,String password);
-
+    User checkUser(String username, String password);
 }

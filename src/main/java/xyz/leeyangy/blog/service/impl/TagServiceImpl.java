@@ -64,7 +64,7 @@ public class TagServiceImpl implements TagService {
 
     private List<Long> convertToList(String ids) {
         List<Long> list = new ArrayList<>();
-        if (!"".equals(ids) && ids != null){
+        if (!"".equals(ids) && ids != null) {
             String[] idarray = ids.split(",");
             for (int i = 0; i < idarray.length; i++) {
                 list.add(new Long(idarray[i]));
@@ -76,8 +76,8 @@ public class TagServiceImpl implements TagService {
     @Transactional
     @Override
     public Tag updateTag(Long id, Tag tag) {
-        Tag t =  tagRepository.getOne(id);
-        if (t == null){
+        Tag t = tagRepository.getOne(id);
+        if (t == null) {
             try {
                 throw new NotFoundException("该类型不存在");
             } catch (NotFoundException e) {

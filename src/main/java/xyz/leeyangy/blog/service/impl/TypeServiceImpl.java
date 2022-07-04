@@ -54,8 +54,8 @@ public class TypeServiceImpl implements TypeService {
     @Transactional
     @Override
     public Type updateType(Long id, Type type) {
-        Type t =  typeRepository.getOne(id);
-        if (t == null){
+        Type t = typeRepository.getOne(id);
+        if (t == null) {
             try {
                 throw new NotFoundException("该类型不存在");
             } catch (NotFoundException e) {

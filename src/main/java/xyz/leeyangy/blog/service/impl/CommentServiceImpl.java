@@ -21,24 +21,26 @@ public class CommentServiceImpl implements CommentService {
 
     // 存放迭代找出的所有子代的集合
     private List<Comment> tempReplys = new ArrayList<>();
+
     /**
      * 递归迭代
+     *
      * @param comment 被迭代的对象
      */
     private void recursively(Comment comment) {
         tempReplys.add(comment);
-        if (comment.getReplyComments().size()>0) {
+        if (comment.getReplyComments().size() > 0) {
             List<Comment> replys = comment.getReplyComments();
             for (Comment reply : replys) {
                 tempReplys.add(reply);
-                if (reply.getReplyComments().size()>0) {
+                if (reply.getReplyComments().size() > 0) {
                     recursively(reply);
                 }
             }
         }
     }
 
-    private void combinChildren(List<Comment> comments){
+    private void combinChildren(List<Comment> comments) {
         for (Comment comment : comments) {
             List<Comment> relys1 = comment.getReplyComments();
             for (Comment rely1 : relys1) {
@@ -54,6 +56,7 @@ public class CommentServiceImpl implements CommentService {
 
     /**
      * 循环每个顶级的评论节点
+     *
      * @param comments
      * @return
      */
@@ -83,7 +86,7 @@ public class CommentServiceImpl implements CommentService {
         System.out.println("开始");
         Long parentCommentId = comment.getParentComment().getId();
         System.out.println("结束" + parentCommentId);
-        if (parentCommentId != -1){
+        if (parentCommentId != -1) {
             comment.setParentComment(commentRepository.getOne(parentCommentId));
         } else {
             comment.setParentComment(null);

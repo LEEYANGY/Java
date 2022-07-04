@@ -24,39 +24,39 @@ public class TagController {
     private TagService tagService;
 
     @GetMapping("/tags")
-    public String tags(@PageableDefault(size = 10,sort = {"id"},direction = Sort.Direction.DESC)
-                        Pageable pageable, Model model){
+    public String tags(@PageableDefault(size = 10, sort = {"id"}, direction = Sort.Direction.DESC)
+                               Pageable pageable, Model model) {
 
         model.addAttribute("page", tagService.listTag(pageable));
         return "/admin/tags";
     }
 
     @GetMapping("/tags/input")
-    public String input(){
+    public String input() {
         return "/admin/tags-input";
     }
 
     // 打开修改页
     @GetMapping("/tags/{id}/edit")
-    public String editInput(@PathVariable Long id, Model model){
+    public String editInput(@PathVariable Long id, Model model) {
         model.addAttribute("tag", tagService.getTag(id));
         return "/admin/tags-input";
     }
 
     // 删除
     @GetMapping("tags/{id}/delete")
-    public String delete(@PathVariable Long id){
+    public String delete(@PathVariable Long id) {
         try {
             tagService.deleteTag(id);
-        } catch (Exception e){
+        } catch (Exception e) {
 
         }
         return "redirect:/admin/tags";
     }
 
     @PostMapping("/tags")
-    public String post(@Valid Tag tag, BindingResult result){
-        if (result.hasErrors()){
+    public String post(@Valid Tag tag, BindingResult result) {
+        if (result.hasErrors()) {
             return "/admin/tags";
         }
         Tag t = tagService.saveTag(tag);

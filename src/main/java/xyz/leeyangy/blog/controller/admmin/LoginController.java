@@ -36,22 +36,22 @@ public class LoginController {
         if (user != null) {
             user.setPassword(null);
             session.setAttribute("user", user);
-            nicknames=username;
-            System.out.println("用户 "+"'"+nicknames+"'"+" 登录，成功登录到后台了，请关注!");
+            nicknames = username;
+            System.out.println("用户 " + "'" + nicknames + "'" + " 登录，成功登录到后台了，请关注!");
             return "admin/index";
-        }else {
-            attributes.addFlashAttribute("message","用户名或密码错误");
+        } else {
+            attributes.addFlashAttribute("message", "用户名或密码错误");
             System.out.println("有用户尝试登录了，失败了，请及时关注服务器!");
             return "redirect:/admin";
         }
     }
 
     @GetMapping("/loginout")
-    public String logintout(HttpSession session){
+    public String logintout(HttpSession session) {
 
         session.removeAttribute("user");
-        System.out.println("用户 " + "'" +  nicknames + "'" + " 注销了登录");
-        nicknames=null;
+        System.out.println("用户 " + "'" + nicknames + "'" + " 注销了登录");
+        nicknames = null;
         return "redirect:/admin";
     }
 

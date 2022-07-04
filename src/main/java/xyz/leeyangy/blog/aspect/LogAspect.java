@@ -2,6 +2,7 @@ package xyz.leeyangy.blog.aspect;
 
 //import jakarta.servlet.Servlet;
 //import org.springframework.web.servlet.*;
+
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -44,7 +45,7 @@ public class LogAspect {
 
 //        新建对象
         RequestLog requestLog = new RequestLog(url, ip, classMethod, args);
-        logger.info("Request : {} "+requestLog);
+        logger.info("Request : {} " + requestLog);
     }
 
     @After("log()")
@@ -64,7 +65,7 @@ public class LogAspect {
         private String classMethod;
         private Object[] args;
 
-//        全参构造
+        //        全参构造
         public RequestLog(String url, String ip, String classMethod, Object[] args) {
             this.url = url;
             this.ip = ip;

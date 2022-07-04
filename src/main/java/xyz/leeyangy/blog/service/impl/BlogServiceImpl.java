@@ -59,11 +59,11 @@ public class BlogServiceImpl implements BlogService {
             @Override
             public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 List<Predicate> predicates = new ArrayList<>();
-                if (!"".equals(blog.getTitle()) && blog.getTitle() != null){
+                if (!"".equals(blog.getTitle()) && blog.getTitle() != null) {
                     predicates.add(criteriaBuilder.like(root.<String>get("title"), "%"
                             + blog.getTitle() + "%"));
                 }
-                if (blog.getTypeId() != null){
+                if (blog.getTypeId() != null) {
                     predicates.add(criteriaBuilder.equal(root.<Type>get("type").get("id"), blog.getTypeId()));
                 }
                 if (blog.isRecommend()) {
@@ -123,7 +123,7 @@ public class BlogServiceImpl implements BlogService {
     @Transactional
     @Override
     public Blog saveBlog(Blog blog) {
-        if (blog.getId() == null){
+        if (blog.getId() == null) {
             blog.setCreateTime(new Date());
             blog.setViews(0);
         }
@@ -135,7 +135,7 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Blog updateBlog(Long id, Blog blog) {
         Blog b = blogRepository.getOne(id);
-        if (b == null){
+        if (b == null) {
             try {
                 throw new NotFoundException("该博客不存在");
             } catch (NotFoundException e) {
