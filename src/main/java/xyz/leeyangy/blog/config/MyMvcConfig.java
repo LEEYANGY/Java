@@ -3,7 +3,7 @@ package xyz.leeyangy.blog.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import xyz.leeyangy.blog.handler.LoginHandlerInterceptor;
+import xyz.leeyangy.blog.component.LoginHandlerInterceptor;
 
 /**
  * @author LEEYANGY
