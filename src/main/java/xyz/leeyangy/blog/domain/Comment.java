@@ -19,10 +19,13 @@ public class Comment {
     private Long id;
     private String name;
     private String email;
+    @Basic(fetch = FetchType.LAZY)
+    @Lob
     private String content;
     private String avatar;
     @Temporal(TemporalType.DATE)
     private Date createTime;
+    private boolean adminComment;
 
     public Comment() {
     }
@@ -75,18 +78,6 @@ public class Comment {
         this.createTime = createTime;
     }
 
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", content='" + content + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", createTime=" + createTime +
-                '}';
-    }
-
     @ManyToOne
     private Blog blog;
 
@@ -99,17 +90,17 @@ public class Comment {
     }
 
     @OneToMany(mappedBy = "parentComment")
-    private List<Comment> replayComments = new ArrayList<>();
+    private List<Comment> replyComments = new ArrayList<>();
 
     @ManyToOne
     private Comment parentComment;
 
-    public List<Comment> getReplayComments() {
-        return replayComments;
+    public List<Comment> getReplyComments() {
+        return replyComments;
     }
 
-    public void setReplayComments(List<Comment> replayComments) {
-        this.replayComments = replayComments;
+    public void setReplyComments(List<Comment> replyComments) {
+        this.replyComments = replyComments;
     }
 
     public Comment getParentComment() {
@@ -118,5 +109,28 @@ public class Comment {
 
     public void setParentComment(Comment parentComment) {
         this.parentComment = parentComment;
+    }
+
+    public boolean isAdminComment() {
+        return adminComment;
+    }
+
+    public void setAdminComment(boolean adminComment) {
+        this.adminComment = adminComment;
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", content='" + content + '\'' +
+                ", createTime=" + createTime +
+                ", adminComment=" + adminComment +
+                ", blog=" + blog +
+                ", replyComments=" + replyComments +
+                ", parentComment=" + parentComment +
+                '}';
     }
 }
