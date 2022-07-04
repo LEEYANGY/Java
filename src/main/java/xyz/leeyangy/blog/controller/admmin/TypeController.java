@@ -29,6 +29,7 @@ public class TypeController {
                         Pageable pageable, Model model){
 
         model.addAttribute("page", typeService.listType(pageable));
+        System.out.println("--------- types 1---------");
         return "/admin/types";
     }
 
@@ -58,6 +59,7 @@ public class TypeController {
         }
         Type t = typeService.saveType(type);
 
+        System.out.println("--------- types 2---------");
         return "redirect:/admin/types";
     }
 
