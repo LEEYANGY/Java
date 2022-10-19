@@ -14,6 +14,7 @@
       <set>
         <option value="$PROJECT_DIR$/springMVC-02/pom.xml" />
         <option value="$PROJECT_DIR$/springMVC-1/pom.xml" />
+        <option value="$PROJECT_DIR$/springMVC-demo/spring-mvc-01/pom.xml" />
       </set>
     </option>
   </component>
