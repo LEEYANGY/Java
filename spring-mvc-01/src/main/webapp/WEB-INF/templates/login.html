@@ -19,7 +19,13 @@
         <input type="submit" value="提交post请求，携带参数">
     </form>
 
-<a th:href="@{/login/success(username='admin',password='admin')}" methods="get">测试请求头</a>
+  <a th:href="@{/login/success(username='admin',password='admin')}" methods="get">测试请求头</a>
+  <br>   <!--  换行  -->
+  <a th:href="@{/testPath/1}">测试@ResquestMapping支持路径中占位符==>> /testPath 1 </a>
+  <br>   <!--  换行  -->
+  <a th:href="@{/testPath/1/leeyangy}">测试@ResquestMapping支持路径中占位符==>> /testPath  1 leeyangy </a>
+  <br>   <!--  换行  -->
+  <a th:href="@{/param}">测试@ResquestMapping支持路径中占位符==>> /param </a>
 
 </body>
 </html>

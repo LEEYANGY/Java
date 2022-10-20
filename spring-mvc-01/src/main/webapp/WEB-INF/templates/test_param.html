@@ -1,0 +1,13 @@
+﻿<!DOCTYPE html>
+<html lang="en" xml:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>test post param</title>
+</head>
+<body>
+    <h1>测试请求参数</h1>
+
+    <a th:href="@{/testServletAPI(username='admin',password='password')}">测试使用servletAPI获取请求参数</a>
+
+</body>
+</html>
