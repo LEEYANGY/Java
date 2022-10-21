@@ -79,4 +79,11 @@ public class IndexController {
         System.out.println("--- test_view ---");
         return "test_view";
     }
+
+    @RequestMapping("/testUser")
+    public String testUser(){
+        System.out.println("--- 进入testUser ---");
+        return "test_rest";
+    }
+
 }

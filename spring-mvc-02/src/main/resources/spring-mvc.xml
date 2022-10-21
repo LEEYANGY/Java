@@ -36,8 +36,9 @@
 
 <!--    当控制器方法中，仅仅用来实现页面跳转，即只需要设置视图名称时，可以将处理器方法使用view-conntroller标签-->
     <!--    视图控制器-->
-<!--    <mvc:view-controller path="/" view-name="index"></mvc:view-controller>-->
+    <mvc:view-controller path="/" view-name="index"></mvc:view-controller>
     <mvc:view-controller path="/test_view" view-name="test_view"></mvc:view-controller>
+    <mvc:view-controller path="/test_rest" view-name="test_rest"></mvc:view-controller>
     <!--
         处理静态资源 例如html，js，css，jpg
         若只设置该标签，则只能访问静态资源，其它请求无法访问
