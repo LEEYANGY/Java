@@ -18,4 +18,9 @@ public class ViewController {
         return "success";
     }
 
+    @RequestMapping("/testForward")
+    public String testForward(){
+        System.out.println("--- forward ---");
+        return "forward:/testThymeleafView";
+    }
 }
