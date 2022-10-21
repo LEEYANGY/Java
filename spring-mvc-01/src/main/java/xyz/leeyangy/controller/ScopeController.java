@@ -6,6 +6,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.Servlet;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
@@ -65,11 +67,33 @@ public class ScopeController {
         return "success";
     }
 
-//    test servlet http session
+    //    test servlet http session
     @RequestMapping("/testSession")
     public String testSession(HttpSession session) {
-        session.setAttribute("testSessionScope","hello,session");
+        session.setAttribute("testSessionScope", "hello,session");
         return "success";
     }
 
+    //
+
+    /**
+     * 向application域共享数据，也就是ServletCOntext中
+     * applicaiton 代表整个应用中的范围
+     * 整个工程都需要用到application时候，才会写application
+     * <p>
+     * 一般情况下选择requset和session
+     * 列表，修改，回显，用到request功能，错误信息提示
+     * session常用于保存用户登录状态，登录之后，只要浏览器不关闭，就表示当前状态下是登录成功
+     * session默认最大存活时间是30分钟，一般情况下不需要改
+     *
+     * @param session
+     * @return
+     */
+
+    @RequestMapping("/testApplication")
+    public String testApplication(HttpSession session) {
+        ServletContext application = session.getServletContext();
+        application.setAttribute("testApplicationScope", "hello,application");
+        return "success";
+    }
 }
