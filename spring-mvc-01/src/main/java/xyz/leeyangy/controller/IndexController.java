@@ -54,11 +54,23 @@ public class IndexController {
     }
 
 //    test post param
+//    @RequestMapping("/param")
+//    public String testParam(HttpServletRequest request){
+//        String username = request.getParameter("username");
+//        String password = request.getParameter("password");
+//        System.out.println("username="+username+" password="+password);
+//        return "test_param";
+//    }
+
     @RequestMapping("/param")
-    public String testParam(HttpServletRequest request){
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        System.out.println("username="+username+" password="+password);
+    public String testParam(){
+        System.out.println("param controller");
+        return "test_param";
+    }
+
+    @RequestMapping("/Param")
+    public String testParams(){
+        System.out.println("params controller");
         return "test_param";
     }
 
