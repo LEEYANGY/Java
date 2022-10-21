@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * @Package: xyz.leeyangy.controller
@@ -40,11 +41,17 @@ public class ScopeController {
         return mav;
     }
 
+//    model
     @RequestMapping("/testModel")
     public String testModel(Model model){
         model.addAttribute("testRequestScope","hello,model");
         return "success";
     }
 
-
+//    使用map向request域对象共享数据
+    @RequestMapping("/testMap")
+    public String testMap(Map<String,Object>map){
+        map.put("testRequestScope","hello,Map");
+        return "success";
+    }
 }
