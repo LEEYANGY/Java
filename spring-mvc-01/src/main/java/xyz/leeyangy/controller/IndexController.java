@@ -74,4 +74,9 @@ public class IndexController {
         return "test_param";
     }
 
+    @RequestMapping("/test_view")
+    public String testView(){
+        System.out.println("--- test_view ---");
+        return "test_view";
+    }
 }
