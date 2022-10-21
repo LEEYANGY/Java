@@ -2,10 +2,12 @@ package xyz.leeyangy.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
@@ -17,41 +19,57 @@ import java.util.Map;
 @Controller
 public class ScopeController {
 
-//    servletAPI
+    //    servletAPI
     @RequestMapping("/testRequestByServletAPI")
-    public String testRequestByServletAPI(HttpServletRequest request){
-        request.setAttribute("testRequestScope","hello,servlet");
+    public String testRequestByServletAPI(HttpServletRequest request) {
+        request.setAttribute("testRequestScope", "hello,servlet");
         return "success";
     }
 
 //    spring提供的向request域共享数据方法
 
     /**
-     *          向request域共享数据，向视图设置视图名称
-     * @return  ModelAndView必须做为返回值返回
+     * 向request域共享数据，向视图设置视图名称
+     *
+     * @return ModelAndView必须做为返回值返回
      */
     @RequestMapping("testModelAndView")
-    public ModelAndView testModelAndView(){
+    public ModelAndView testModelAndView() {
         System.out.println("使用了 ModelAndView");
-        ModelAndView mav=new ModelAndView();
+        ModelAndView mav = new ModelAndView();
 //        处理模型数据，想请求域request共享数据
-        mav.addObject("testRequestScope","hello,ModelAndView");
+        mav.addObject("testRequestScope", "hello,ModelAndView");
 //        设置视图名称  view
         mav.setViewName("success");
         return mav;
     }
 
-//    model
+    //    model
     @RequestMapping("/testModel")
-    public String testModel(Model model){
-        model.addAttribute("testRequestScope","hello,model");
+    public String testModel(Model model) {
+        model.addAttribute("testRequestScope", "hello,model");
         return "success";
     }
 
-//    使用map向request域对象共享数据
+    //    使用map向request域对象共享数据
     @RequestMapping("/testMap")
-    public String testMap(Map<String,Object>map){
-        map.put("testRequestScope","hello,Map");
+    public String testMap(Map<String, Object> map) {
+        map.put("testRequestScope", "hello,Map");
         return "success";
     }
+
+    //    testModelMap
+    @RequestMapping("/testModelMap")
+    public String testModelMap(ModelMap modelMap) {
+        modelMap.addAttribute("testRequestScope", "hello,ModelMap");
+        return "success";
+    }
+
+//    test servlet http session
+    @RequestMapping("/testSession")
+    public String testSession(HttpSession session) {
+        session.setAttribute("testSessionScope","hello,session");
+        return "success";
+    }
+
 }
