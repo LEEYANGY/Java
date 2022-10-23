@@ -8,6 +8,8 @@
     <modules>
         <module>springMVC-demo</module>
         <module>spring-mvc-01</module>
+        <module>spring-mvc-02</module>
+        <module>mvc-restful</module>
     </modules>
     <name>springMVC Maven</name>
     <url>http://maven.apache.org</url>
@@ -50,6 +52,20 @@
             <artifactId>thymeleaf-spring5</artifactId>
             <version>3.0.15.RELEASE</version>
         </dependency>
+<!--        lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+<!--        添加处理json依赖-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.4</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>springMVC</finalName>
